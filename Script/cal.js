@@ -24,9 +24,13 @@ function geyser_persent(x, k) {
     if (x < 2) {
         better_persent = (x * lnx - x + 1) / (k - 1);
         document.getElementById("better_persent").innerHTML = "x<2,better_persent的值为 " + better_persent;
+        geyser_better_persent_view = Math.round(better_persent * 100);
+        document.getElementById("geyser_better_persent").innerHTML = "Better than " + geyser_better_persent_view +"% " + "percent of the same type geyser.";
     } else if (2 < x && x < k) {
         better_persent = (x * Math.LN2 - 1) / (k - 1);
         document.getElementById("better_persent").innerHTML = "2 < x && x < k , better_persent的值为 " + better_persent;
+        geyser_better_persent_view = Math.round(better_persent * 100);
+        document.getElementById("geyser_better_persent").innerHTML = "Better than " + geyser_better_persent_view +"% " + "percent of the same type geyser.";
     } else if (k < x) {
         twokx = (2 * k) / x;
         twokx_log = Math.log(twokx) / Math.log(e);
