@@ -58,8 +58,7 @@
      */
     load: function(langScript, callback) {
       var success = false
-      var b = $.i18n.getLocale() != 'en' // 非英语环境才加载资源文件
-      if (langScript != null && b) {
+      if (langScript != null) {
         if (typeof langScript === 'object' && !isNaN(langScript.length)) {
           $(langScript).each(function(i, item) {
             _appendScript(item)
@@ -105,6 +104,9 @@
         //传入的是元素
         id = $(elem).attr('lang-key')
         res = $.i18n.lang[locale][id]
+
+        // 如果没有设置对应的语言，使用元素内的文本
+        if (!res) res = $(elem).text()
       }
       return res || defaultValue || id
     },
@@ -124,15 +126,18 @@
 })(jQuery)
 
 $(function() {
+  // 基于浏览器设置默认语言
+  if (!$.cookie('locale')) $.i18n.setLocale()
+
   // 绑定语言切换
   $('[id|="lang-switch"]').on('click', function(event) {
     var lang = $(this).attr('id').split('-')[2]
     $.i18n.setLocale(lang)
     location.reload()
   })
+
   // 加载资源文件
   $.i18n.load('lang/language.js', function(success) {
-    if (!success) return // 如需强制使用 language 资源文件请注释该行，否则只有非英语才加载配置文件
     $('[lang-key]').each(function(i, item) {
       $(item).text($.i18n.prop(item))
     })
