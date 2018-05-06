@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>ONI geyser calculator</title>
+    <title>ONI Geyser Calculator</title>
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link href="CSS/form.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Cantarell|Hammersmith+One" rel="stylesheet">
@@ -25,12 +25,15 @@
 <body>
   <div class="container">
     <div class="lang-switch">
+      <a class="text-success">Language</a>
       <a id='lang-switch-zh' href="javascript:;">简体中文</a>
+      <a id='lang-switch-tw' href="javascript:;">繁體中文</a>
       <a id='lang-switch-en' href="javascript:;">English</a>
+      <a id='lang-switch-jp' href="javascript:;">日本語</a>
     </div>
     <div class="py-5 text-center">
         <h2 lang-key="title">ONI Geyser Calculator (Preview)</h2>
-        <p lang-key="sub_title" class="lead">Calculate the excellence of geyser. </p>
+        <p lang-key="sub_title" class="lead">Good Geyser Not Included </p>
         <p><a href="https://github.com/zsnmwy/ONI-geyser-calculator/issues" target="_blank"><span lang-key="issue">ISSUE</span></a></p>
         <p><a href="https://space.bilibili.com/845096/#/" target="_blank">Author zsnmwy</a></p>
     </div>
@@ -122,6 +125,9 @@
                 <br/>
                 <span lang-key="and_click_cal">And click "Cal".</span>
             </p>
+            <p id="Actual_average_daily_output" class="lead text-info"></p>
+            <br />
+            <p id="debug_message"></p>
             <p id="geyser_name"></p>
             <p id="Min_Daily_Eruption"></p>
             <p id="Max_Daily_Eruption"></p>
