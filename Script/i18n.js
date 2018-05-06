@@ -106,7 +106,7 @@
         res = $.i18n.lang[locale][id]
 
         // 如果没有设置对应的语言，使用元素内的文本
-        if (!res) res = $(elem).text()
+        if (!res) res = $(elem).html()
       }
       return res || defaultValue || id
     },
