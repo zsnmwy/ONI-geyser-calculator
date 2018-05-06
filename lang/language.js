@@ -1,7 +1,7 @@
 $.i18n.lang = $.extend(true, $.i18n.lang || {}, {
 
   en: {
-    // title: 'ONI Geyser Calculator (Preview)',
+    title: 'ONI Geyser Calculator (Preview)',
     value_of: 'the value of the "${0}" is ${1}',
     batter_than: 'Better than ${0}% percent of the same type geyser.',
   },

@@ -143,7 +143,7 @@ $(function() {
   // 加载资源文件
   $.i18n.load('lang/language.js', function(success) {
     $('#j_password').prop('placeholder', $.i18n.prop('#j_password'));
-    $('[placeholder]')
+    $('title').text($.i18n.prop('title'))
     $('[lang-key]').each(function(i, item) {
       // 如果含有placeholder属性则替换该属性
       if ($(item).attr('placeholder')) {
