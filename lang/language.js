@@ -2,6 +2,8 @@ $.i18n.lang = $.extend(true, $.i18n.lang || {}, {
 
   en: {
     // title: 'ONI Geyser Calculator (Preview)',
+    value_of: 'the value of the "${0}" is ${1}',
+    batter_than: 'Better than ${0}% percent of the same type geyser.',
   },
 
   zh: {
@@ -14,6 +16,8 @@ $.i18n.lang = $.extend(true, $.i18n.lang || {}, {
     Please_fill_the_geyser_information: '请填写你的间歇泉信息',
     and_click_cal: '然后点击“计算”',
     cal: '计算',
+    batter_than: '你的温泉在击败了同类温泉中的 ${0}%',
+    value_of: '"${0}" 的值为 ${1}',
 
     RT_Eruption:'间歇泉喷发量',
     RT_Eruption_ex: '单位：g',
