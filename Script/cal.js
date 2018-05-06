@@ -5,6 +5,13 @@ function get_input() {
     Eruption_Period_Max_Num = $('#input_Eruption_Period_Max').val().trim();
     Acitve_Period_Min_Num = $('#input_Acitve_Period_Min').val().trim();
     Acitve_Period_Max_Num = $('#input_Acitve_Period_Max').val().trim();
+    // 最小值大于最大值时交换
+    if (Eruption_Period_Min_Num > Eruption_Period_Max_Num) {
+        [Eruption_Period_Min_Num, Eruption_Period_Max_Num] =  [Eruption_Period_Max_Num, Eruption_Period_Min_Num]
+    }
+    if (Acitve_Period_Min_Num > Acitve_Period_Max_Num) {
+        [Acitve_Period_Min_Num, Acitve_Period_Max_Num] =  [Acitve_Period_Max_Num, Acitve_Period_Min_Num]
+    }
 }
 
 function cal_x_k() {
@@ -50,7 +57,7 @@ function start() {
     document.getElementById("Max_Daily_Eruption").innerHTML = $.i18n.prop('value_of', 'Max_Daily_Eruption', Max_Daily_Eruption)
     cal_x_k();
     geyser_persent(x, k);
-
+    return false;   // 防止网页刷新
 }
 
 function Daily_Eruption_duge(geyser_name) {

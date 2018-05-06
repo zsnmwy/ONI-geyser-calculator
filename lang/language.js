@@ -2,6 +2,13 @@ $.i18n.lang = $.extend(true, $.i18n.lang || {}, {
 
   en: {
     title: 'ONI Geyser Calculator (Preview)',
+
+    g: 'g',
+    s: 's',
+    cycle: 'cycles',
+    per: 'per',
+    every: 'every',
+
     value_of: 'the value of the "${0}" is ${1}',
     batter_than: 'Better than ${0}% percent of the same type geyser.',
   },
@@ -19,15 +26,13 @@ $.i18n.lang = $.extend(true, $.i18n.lang || {}, {
     value_of: '"${0}" 的值为 ${1}',
 
     RT_Eruption:'间歇泉喷发量',
-    RT_Eruption_ex: '单位：g',
-    Eruption_Period_Min:'喷发期小数字',
-    Eruption_Period_Min_ex: '单位：s',
-    Eruption_Period_Max:'喷发期大数字',
-    Eruption_Period_Max_ex: '单位：s',
-    Acitve_Period_Min:'活跃期小数字',
-    Acitve_Period_Min_ex: '单位：s',
-    Acitve_Period_Max:'活跃期大数字',
-    Acitve_Period_Max_ex: '单位：s',
+    Eruption_Period:'喷发期',
+    Acitve_Period:'活跃期',
+    g: '克',
+    s: '秒',
+    cycle: '周期',
+    per: '每',
+    every: '中的',
 
     Cool_Steam_Vent: '',
     Steam_Vent: '',
