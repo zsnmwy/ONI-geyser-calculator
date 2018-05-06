@@ -9,7 +9,6 @@ $.i18n.lang = $.extend(true, $.i18n.lang || {}, {
   zh: {
     title: '缺氧 间歇泉计算器（预览版）',
     sub_title: '看看你的间歇泉有多优秀',
-    issue: '意见 / 反馈',
 
     fill_geyser_info: '填写你的间歇泉数据',
     Geyser_Information: '间歇泉信息',

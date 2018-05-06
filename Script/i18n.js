@@ -131,6 +131,7 @@
 $(function() {
   // 基于浏览器设置默认语言
   if (!$.cookie('locale')) $.i18n.setLocale()
+  $(`#lang-switch-${$.cookie('locale')}`).removeAttr('href')
 
   // 绑定语言切换
   $('[id|="lang-switch"]').on('click', function(event) {
