@@ -1,0 +1,18 @@
+{
+  "name": "oni_garser_cal_api",
+  "description": "The ONI Garser Calculator image recognition API",
+  "version": "0.1.0",
+  "main": "index.js",
+  "author": "mutoe",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "dev": "pm2-dev index.js"
+  },
+  "dependencies": {
+    "dotenv": "^5.0.1",
+    "koa": "^2.5.1",
+    "koa-bodyparser": "^4.2.0",
+    "pm2": "^2.10.3"
+  }
+}
