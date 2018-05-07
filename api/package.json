@@ -13,6 +13,11 @@
     "dotenv": "^5.0.1",
     "koa": "^2.5.1",
     "koa-bodyparser": "^4.2.0",
-    "pm2": "^2.10.3"
+    "koa-http-request": "^2.2.1",
+    "koa-logger": "^3.2.0",
+    "koa-router": "^7.4.0",
+    "koa-views": "^6.1.4",
+    "pm2": "^2.10.3",
+    "pug": "^2.0.3"
   }
 }

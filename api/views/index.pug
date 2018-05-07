@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+html(lang="zh-Hans")
+head
+  meta(charset="UTF-8")
+  meta(name="viewport", content="width=device-width, initial-scale=1.0")
+  meta(http-equiv="X-UA-Compatible", content="ie=edge")
+  title ONI Image Recognition API
+body
+  img#img-upload
+  form(action="upload" method="POST")
+    input#ipt-file(type="file")
+    button#clean(type='button') 清除
+    p width: #[span#width 0] height: #[span#height 0]
+    label base64
+      textarea#base64
+  h3#loading(style='display: none;') 识别中...
+  h5 识别结果
+  p#result
+  button(onclick='analyze()') 分析
+  h5 分析结果
+  p 温泉种类 #[span#type null] 温度 #[span#Temp null]
+  p 喷发量 #[span#RT 0] g/s
+  p 喷发期 #[span#ep1 0] #[span#ep2 0]
+  p 活跃期 #[span#ap1 0] #[span#ap2 0]
+
+  script(src="https://cdn.bootcss.com/jquery/1.11.1-rc2/jquery.min.js")
+  script.
+    let width = 0, height = 0, base64, result
+    result = JSON.parse(localStorage.getItem('result') || '{}')
+    $('#result').text(JSON.stringify(result))
+    analyze()
+    $('#clean').on('click', function() {
+      $('#ipt-file').files = []
+    })
+    $('#ipt-file').on('change', function(event) {
+      const file = this.files[0]
+      if (!file) return
+
+      // 获取图像宽高
+      const img = new Image()
+      img.onload = function () {
+        height = this.height
+        width = this.width
+        $('#width').text(this.width)
+        $('#height').text(this.height)
+        if (height > 900 || width > 900) {
+          alert('图片尺寸太大，请只截取喷泉相关部分，避免无用信息参与分析')
+          return
+        }
+        getBase64(file)
+      }
+      const _URL = window.URL || window.webkitURL
+      img.src = _URL.createObjectURL(file)
+      $('#img-upload').attr('src', _URL.createObjectURL(file))
+    })
+
+    function analyze() {
+      let words = Array(result)[0]
+      console.table(words)
+      for (let i of words) {
+        word = i.words
+        let match
+        // 识别温泉种类和喷发量
+        if ((match = word.match(/^(\S+)[;:]\S*?([.\d]+)(千?)克\/秒\S*/))) {
+          const Temp = match[0].match(/(-?[.\d]+?)摄氏度/)
+          console.log('温泉种类', match)
+          $('#type').text(match[1])
+          $('#Temp').text(Temp[1])
+          $('#RT').text(match[2] * (match[3] ? 1000 : 1))
+          continue
+        }
+        // 识别喷发期
+        if ((match = word.match(/喷发\S+?[;:]\S*?(\d+)秒\S+?(\d+)秒/))) {
+          console.log('喷发期', match)
+          $('#ep1').text(match[1])
+          $('#ep2').text(match[2])
+          continue
+        }
+        // 识别活跃期
+        if ((match = word.match(/活(?:跃期|动周期)[;:]\S*?([.\d]+)(?:个周期|天)\S*?([.\d]+)(?:个周期|天)/))) {
+          console.log('活跃期', match)
+          $('#ap1').text(match[1])
+          $('#ap2').text(match[2])
+          continue
+        }
+      }
+    }
+
+    function getBase64(file) {
+      // 获取图像 base64 编码
+      const reader = new FileReader()
+      reader.onload = e => {
+        base64 = e.target.result.replace(/^data:image\/(png|jpe?g|gif);base64,/, '')
+        $('#base64').text(base64)
+        getAccessToken()
+      }
+      reader.readAsDataURL(file)
+    }
+
+    function getAccessToken() {
+      $('#loading').show()
+      $.get('/token', res => {
+        OCR(res)
+      })
+    }
+
+    /**
+     * Baidu AI OCR API
+     * http://ai.baidu.com/docs#/OCR-API/top
+     */
+    function OCR(token) {
+      let url = 'https://aip.baidubce.com/rest/2.0/ocr/v1/general_basic'
+      url += `?access_token=${token}`
+      $.ajax({
+        type: 'POST',
+        url,
+        data: {
+          image: base64,
+          language_type: 'CHN_ENG',
+        },
+        crossDomain: true,
+        contentType: 'application/x-www-form-urlencoded',
+      }).done(function(res) {
+        console.log(res)
+        result = res.words_result
+        localStorage.setItem('result', JSON.stringify(result))
+        $('#loading').hide()
+        analyze()
+      })
+    }
