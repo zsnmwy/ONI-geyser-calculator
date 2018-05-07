@@ -56,7 +56,7 @@ $.i18n.lang = $.extend(true, $.i18n.lang || {}, {
         Leaky_Oil_Fissure: '漏油裂缝',
     },
 
-    tw: {
+    'zh-tw': {
         title: '缺氧 間歇泉計算器（預覽版）',
         sub_title: '看看你的間歇泉有多優秀',
 
@@ -98,7 +98,7 @@ $.i18n.lang = $.extend(true, $.i18n.lang || {}, {
         Leaky_Oil_Fissure: '漏油裂縫',
     },
 
-    jp: {
+    ja: {
         title: '間欠泉計算器（BETA）',
         sub_title: '間欠泉ガチャゲームへようこそ！',
 
