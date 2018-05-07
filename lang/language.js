@@ -23,7 +23,7 @@ $.i18n.lang = $.extend(true, $.i18n.lang || {}, {
         Please_fill_the_geyser_information: '请填写你的间歇泉信息',
         and_click_cal: '然后点击“计算”',
         cal: '计算',
-        batter_than: '你的温泉在击败了同类温泉中的 ${0}%',
+        batter_than: '你的温泉击败了同类温泉中的 ${0}%',
         average_daily_output: '实际日均产出 : ${0} kg/cycles',
         value_of: '"${0}" 的值为 ${1}',
 
@@ -65,7 +65,7 @@ $.i18n.lang = $.extend(true, $.i18n.lang || {}, {
         Please_fill_the_geyser_information: '請填寫你的間歇泉信息',
         and_click_cal: '然後點擊“計算”',
         cal: '計算',
-        batter_than: '你的溫泉在擊敗了同類溫泉中的 ${0}%',
+        batter_than: '你的溫泉擊敗了同類溫泉中的 ${0}%',
         average_daily_output: '實際日均產出 : ${0} kg/cycles',
         value_of: '"${0}" 的值為 ${1}',
 
