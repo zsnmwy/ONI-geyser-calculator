@@ -1,4 +1,6 @@
-# 缺氧间歇泉计算器
+# ONI-geyser-calculator
+
+Good Geyser Not Included
 
 ## 关于 i18n
 
