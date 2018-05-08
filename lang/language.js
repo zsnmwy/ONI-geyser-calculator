@@ -6,7 +6,7 @@ $.i18n.lang = $.extend(true, $.i18n.lang || {}, {
         g: 'g',
         s: 's',
         cycle: 'cycles',
-        per: 'per',
+        per: ' ',
         every: 'every',
         average_daily_output: 'Actual average second output : ${0} kg/s',
         value_of: 'the value of the "${0}" is ${1}',
