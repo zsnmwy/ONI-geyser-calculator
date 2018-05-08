@@ -45,7 +45,18 @@
     <div class="row">
         <div class="col-md-6">
             <h2 lang-key="fill_geyser_info">Fill Geyser Information</h2>
-            <br/>
+            <div id="image-recogintion" style="display: none;">
+                <div class="progress" style="height: 1px;">
+                    <div class="progress-bar" role="progressbar" style="width: 100%;opacity: 0;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                <p id="before-upload"><span lang-key="or">or </span><a class="btn-upload" href="javascript:;" lang-key="click_here">click here</a><span lang-key="to_upload_your_cap"> to upload your geyser screenshot.</span></p>
+                <p id="after-upload" class="text-success" style="display: none;">
+                    <span lang-key="finish_recognition">Recognition is complete. the recognition result may be wrong. Please check it and click "Cal"</span>
+                    <a class="btn-upload" href="javascript:;" lang-key="reupload">Re-upload</a>
+                </p>
+                <input id="ipt-file" type="file" style="display: none;">
+            </div>
+            <br>
             <form>
                 <select class="form-control" name="Geyser" id="Geyser_type" required>
                     <option value="Cool_Steam_Vent" lang-key="Cool_Steam_Vent">Cool Steam Vent</option>
@@ -116,7 +127,7 @@
                 </div>
                 <div class="row">
                     <div class="col-12">
-                        <button type="submit" class="btn btn-large btn-block btn-primary" onclick="return start()" lang-key="cal">Cal</button>
+                        <button type="button" class="btn btn-large btn-block btn-primary" onclick="return start()" lang-key="cal">Cal</button>
                     </div>
                 </div>
             </form>
@@ -132,15 +143,9 @@
             </p>
             <p id="Actual_average_daily_output" class="lead text-info"></p>
             <br />
-            <p id="debug_message"></p>
-            <p id="geyser_name"></p>
-            <p id="Min_Daily_Eruption"></p>
-            <p id="Max_Daily_Eruption"></p>
-            <p id="x_value"></p>
-            <p id="k_value"></p>
-            <p id="n_value"></p>
-            <p id="nmin_value"></p>
-            <p id="better_persent"></p>
+            <div id="extra-info">
+                <img id="img-upload">
+            </div>
         </div>
     </div>
 </div>
@@ -154,6 +159,7 @@
 
 <script src="Script/geyser_information.js"></script>
 <script src="Script/cal.js"></script>
+<script src="Script/image_recognition.js"></script>
 
 </body>
 </html>
