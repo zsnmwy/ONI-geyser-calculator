@@ -38,7 +38,7 @@ $.i18n.lang = $.extend(true, $.i18n.lang || {}, {
         per: '每',
         every: '中的',
 
-        Cool_Steam_Vent: '低温蒸汽喷⽓气孔',
+        Cool_Steam_Vent: '低温蒸汽喷⽓孔',
         Steam_Vent: '高温蒸汽喷气孔',
         Water_Geyser: '热水间歇喷泉',
         Cool_Slush_Geyser: '泥浆间歇泉',
@@ -60,6 +60,8 @@ $.i18n.lang = $.extend(true, $.i18n.lang || {}, {
         or: '或',
         click_here: '点击这里',
         to_upload_your_cap: '上传你的喷泉截图进行喷泉识别(只支持官中和max汉化)',
+        finish_recognition: '识别完毕；识别结果可能有误，请检查后点击“计算”',
+        reupload: '重新上传',
         image_too_large: '图片尺寸太大，请只截取喷泉相关部分，避免无用信息参与分析',
     },
 
