@@ -2,7 +2,9 @@ const router = require('koa-router')()
 const API = require('./api')
 
 router.get('/', async ctx => {
-  await ctx.render('index')
+  await ctx.render('index', {
+    subpath: process.env.SUB_PATH || '',
+  })
 })
 
 router.post('/upload', async ctx => {

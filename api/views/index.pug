@@ -61,7 +61,7 @@ body
 
     function upload() {
       $('#loading').show()
-      $.post('/upload', {image: base64}, function(res) {
+      $.post('#{subpath}/upload', {image: base64}, function(res) {
         console.log(res)
         $('#loading').hide()
         $('#type').text(res.type)
