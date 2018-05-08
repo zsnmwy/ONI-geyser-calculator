@@ -4,6 +4,7 @@ const path = require('path')
 const views = require('koa-views')
 const Logger = require('koa-logger')
 const BodyParser = require('koa-bodyparser')
+const cors = require('@koa/cors')
 
 const router = require('./router')
 
@@ -11,6 +12,8 @@ const app = new Koa()
 const port = process.env.PORT || 3000
 
 app.use(Logger())
+
+app.use(cors())
 
 app.use(BodyParser({
   formLimit: '1mb',
