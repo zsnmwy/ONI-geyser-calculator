@@ -1,3 +1,4 @@
+require('dotenv').config()
 const Koa = require('koa')
 const path = require('path')
 const views = require('koa-views')
@@ -7,12 +8,18 @@ const BodyParser = require('koa-bodyparser')
 const router = require('./router')
 
 const app = new Koa()
+const port = process.env.PORT || 3000
+
 app.use(Logger())
-app.use(BodyParser())
+
+app.use(BodyParser({
+  formLimit: '1mb',
+}))
+
 app.use(views(path.join(__dirname, 'views'), { extension: 'pug' }))
 
 app.use(router.routes())
 
-app.listen(3000, () => {
-  console.log('koa is listening in port 3000...')
+app.listen(port, () => {
+  console.log(`koa is listening in port ${port}...`)
 })
