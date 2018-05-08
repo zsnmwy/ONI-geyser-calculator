@@ -5,15 +5,6 @@ function get_input() {
     Eruption_Period_Max_Num = $('#input_Eruption_Period_Max').val().trim();
     Acitve_Period_Min_Num = $('#input_Acitve_Period_Min').val().trim();
     Acitve_Period_Max_Num = $('#input_Acitve_Period_Max').val().trim();
-    // 最小值大于最大值时交换
-    /*
-    if (Eruption_Period_Min_Num > Eruption_Period_Max_Num) {
-        [Eruption_Period_Min_Num, Eruption_Period_Max_Num] =  [Eruption_Period_Max_Num, Eruption_Period_Min_Num]
-    }
-    if (Acitve_Period_Min_Num > Acitve_Period_Max_Num) {
-        [Acitve_Period_Min_Num, Acitve_Period_Max_Num] =  [Acitve_Period_Max_Num, Acitve_Period_Min_Num]
-    }
-    */
 }
 
 function cal_x_k() {
@@ -21,13 +12,13 @@ function cal_x_k() {
     n = (Eruption_Period_Min_Num * RT_Eruption * Acitve_Period_Min_Num) / Acitve_Period_Max_Num / Eruption_Period_Max_Num / 1000;
     n_tofix = n.toFixed(2);
     document.getElementById("Actual_average_daily_output").innerHTML = $.i18n.prop('average_daily_output', n_tofix);
-    document.getElementById("n_value").innerHTML = $.i18n.prop('value_of', 'n', n);
+    console.log('n', n)
     nmin = 0.4 * Min_Daily_Eruption;
-    document.getElementById("nmin_value").innerHTML = $.i18n.prop('value_of', 'nmin', nmin);
+    console.log('nmin', nmin)
     x = n / nmin * 600;
-    document.getElementById("x_value").innerHTML = $.i18n.prop('value_of', 'x', x);
+    console.log('x', x)
     k = Max_Daily_Eruption / Min_Daily_Eruption;
-    document.getElementById("k_value").innerHTML = $.i18n.prop('value_of', 'k', k);
+    console.log('k', k)
 }
 
 function geyser_persent(x, k) {
@@ -35,19 +26,19 @@ function geyser_persent(x, k) {
     lnx = Math.log(x) / Math.log(e);
     if (x < 2) {
         better_persent = (x * lnx - x + 1) / (k - 1);
-        document.getElementById("better_persent").innerHTML = $.i18n.prop('value_of', 'x<2,better_persent', better_persent);
+        console.log('x<2,better_persent', better_persent)
         geyser_better_persent_view = Math.round(better_persent * 100);
         document.getElementById("geyser_better_persent").innerHTML = $.i18n.prop('batter_than', geyser_better_persent_view);
     } else if (2 < x && x < k) {
         better_persent = (x * Math.LN2 - 1) / (k - 1);
-        document.getElementById("better_persent").innerHTML = $.i18n.prop('value_of', '2 < x && x < k , better_persent', better_persent);
+        console.log('2 < x && x < k , better_persent', better_persent)
         geyser_better_persent_view = Math.round(better_persent * 100);
         document.getElementById("geyser_better_persent").innerHTML = $.i18n.prop('batter_than', geyser_better_persent_view);
     } else if (k < x) {
         twokx = (2 * k) / x;
         twokx_log = Math.log(twokx) / Math.log(e);
         better_persent = (x * twokx_log + x - 2 * k) / (k - 1) + 1;
-        document.getElementById("better_persent").innerHTML = $.i18n.prop('value_of', 'k < x , better_persent', better_persent);
+        console.log('k < x , better_persent', better_persent)
         geyser_better_persent_view = Math.round(better_persent * 100);
         document.getElementById("geyser_better_persent").innerHTML = $.i18n.prop('batter_than', geyser_better_persent_view);
     }
@@ -55,14 +46,12 @@ function geyser_persent(x, k) {
 
 function start() {
     geyser_name = document.getElementById("Geyser_type").value;
-    document.getElementById("geyser_name").innerHTML = $.i18n.prop('value_of', 'geyser_name', geyser_name);
+    console.log('geyser_name', geyser_name)
     Daily_Eruption_duge(geyser_name);
-    document.getElementById("Min_Daily_Eruption").innerHTML = $.i18n.prop('value_of', 'Min_Daily_Eruption', Min_Daily_Eruption);
-    document.getElementById("Max_Daily_Eruption").innerHTML = $.i18n.prop('value_of', 'Max_Daily_Eruption', Max_Daily_Eruption);
+    console.log('Min_Daily_Eruption', Min_Daily_Eruption)
+    console.log('Max_Daily_Eruption', Max_Daily_Eruption)
     cal_x_k();
     geyser_persent(x, k);
-    document.getElementById("debug_message").innerHTML="Debug Message";
-    return false;   // 防止网页刷新
 }
 
 function Daily_Eruption_duge(geyser_name) {

@@ -45,7 +45,15 @@
     <div class="row">
         <div class="col-md-6">
             <h2 lang-key="fill_geyser_info">Fill Geyser Information</h2>
-            <br/>
+            <div id="image-recogintion" style="display: none;">
+                <div class="progress" style="height: 1px;">
+                    <div class="progress-bar" role="progressbar" style="width: 100%;opacity: 0;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                <p id="before-upload">或<a class="btn-upload" href="javascript:;">点击这里</a>上传你的喷泉截图进行喷泉识别(目前只支持官中、max汉化)</p>
+                <p id="after-upload" class="text-success" style="display: none;">识别完毕；识别结果可能有误，请检查后点击“计算” <a class="btn-upload" href="javascript:;">重新上传</a></p>
+                <input id="ipt-file" type="file" style="display: none;">
+            </div>
+            <br>
             <form>
                 <select class="form-control" name="Geyser" id="Geyser_type" required>
                     <option value="Cool_Steam_Vent" lang-key="Cool_Steam_Vent">Cool Steam Vent</option>
@@ -116,7 +124,7 @@
                 </div>
                 <div class="row">
                     <div class="col-12">
-                        <button type="submit" class="btn btn-large btn-block btn-primary" onclick="return start()" lang-key="cal">Cal</button>
+                        <button type="button" class="btn btn-large btn-block btn-primary" onclick="return start()" lang-key="cal">Cal</button>
                     </div>
                 </div>
             </form>
@@ -132,15 +140,9 @@
             </p>
             <p id="Actual_average_daily_output" class="lead text-info"></p>
             <br />
-            <p id="debug_message"></p>
-            <p id="geyser_name"></p>
-            <p id="Min_Daily_Eruption"></p>
-            <p id="Max_Daily_Eruption"></p>
-            <p id="x_value"></p>
-            <p id="k_value"></p>
-            <p id="n_value"></p>
-            <p id="nmin_value"></p>
-            <p id="better_persent"></p>
+            <div id="extra-info">
+                <img id="img-upload">
+            </div>
         </div>
     </div>
 </div>
@@ -154,6 +156,7 @@
 
 <script src="Script/geyser_information.js"></script>
 <script src="Script/cal.js"></script>
+<script src="Script/image_recognition.js"></script>
 
 </body>
 </html>
