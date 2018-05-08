@@ -102,8 +102,8 @@
     }
 
     var gayser_name_list = {
-        'Cool_Steam_Vent':                { temp: 383.15, name: ['steam', '水蒸气'] },
-        'Steam_Vent':                     { temp: 773.15, name: ['steam', '水蒸气'] },
+        'Cool_Steam_Vent':                { temp: 383.15, name: ['steam', '水蒸气', '蒸汽'] },
+        'Steam_Vent':                     { temp: 773.15, name: ['steam', '水蒸气', '蒸汽'] },
         'Water_Geyser':                   { temp: 368.15, name: ['water', '水'] },
         'Cool_Slush_Geyser':              { temp: 263.15, name: ['polluted water', '污染水'] },
         'Polluted_Water_Vent':            { temp: 303.15, name: ['polluted water', '污染水'] },

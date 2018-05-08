@@ -66,7 +66,7 @@ class API {
         continue
       }
       // 识别活跃期
-      if ((match = word.match(/活(?:跃期|动周期)[;:]\S*?([.\d]+)(?:个周期|天)\S*?([.\d]+)(?:个周期|天)/)) ||
+      if ((match = word.match(/活(?:跃期|动周期)[;:]\S*?([.\d]+)(?:个周期|天)\S*?([.\d]+)(?:个周?期?|天)/)) ||
           (match = word.match(/Active Period[;:]([ .,\d]+)cycles every([ .,\d]+)\S*/))) {
         match[1] = match[1].replace(/,/g, '.').replace(/\s/g, '')
         match[2] = match[2].replace(/,/g, '.').replace(/\s/g, '')
