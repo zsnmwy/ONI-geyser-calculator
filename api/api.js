@@ -44,7 +44,7 @@ class API {
       // 识别温泉种类和喷发量
       if ((match = word.match(/^(\S+)[;:]\S*?([.\d]+)(千?)克\/秒\S*/))) {
         const tempMatch = match[0].match(/(-?[.\d]+?)摄氏度/)
-        ret.temp = tempMatch[1] + 273.15 // 摄氏度转化为K
+        ret.temp = Number(tempMatch[1]) + 273.15 // 摄氏度转化为K
         ret.type = match[1]
         ret.output = match[2] * (match[3] ? 1000 : 1) // 识别到千克时进行单位换算
         continue
