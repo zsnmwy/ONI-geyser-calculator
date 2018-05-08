@@ -125,7 +125,7 @@
     for (let name in gayser_name_list) {
       let item = gayser_name_list[name]
       if (item.temp !== temp) continue
-      if (item.name.indexOf(type) !== -1) return name
+      if (item.name.indexOf(type.toLowerCase()) !== -1) return name
     }
     return ''
   }
