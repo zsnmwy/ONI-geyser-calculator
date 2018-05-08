@@ -5,13 +5,17 @@ function get_input() {
     Eruption_Period_Max_Num = Number($('#input_Eruption_Period_Max').val().trim());
     Acitve_Period_Min_Num = Number($('#input_Acitve_Period_Min').val().trim());
     Acitve_Period_Max_Num = Number($('#input_Acitve_Period_Max').val().trim());
+
     // 最小值大于最大值时交换
+
     if (Eruption_Period_Min_Num > Eruption_Period_Max_Num) {
         [Eruption_Period_Min_Num, Eruption_Period_Max_Num] =  [Eruption_Period_Max_Num, Eruption_Period_Min_Num];
     }
+
     if (Acitve_Period_Min_Num > Acitve_Period_Max_Num) {
         [Acitve_Period_Min_Num, Acitve_Period_Max_Num] =  [Acitve_Period_Max_Num, Acitve_Period_Min_Num];
     }
+
     console.log('RT Eruption',RT_Eruption);
     console.log('Eruption_Period_Min_Num',Eruption_Period_Min_Num);
     console.log('Eruption_Period_Max_Num',Eruption_Period_Max_Num);
