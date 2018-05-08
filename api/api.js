@@ -61,13 +61,13 @@ class API {
       }
       // 识别喷发期
       if ((match = word.match(/喷发\S+?[;:]\S*?(\d+)秒\S+?(\d+)秒/)) ||
-          (match = word.match(/Eruption Period[;:]\s?(\d+)s every (\d+)s/))) {
+          (match = word.match(/Eruption.+[;:]\s?(\d+)s every (\d+)s/))) {
         ret.ep = [Number(match[1]), Number(match[2])]
         continue
       }
       // 识别活跃期
       if ((match = word.match(/活(?:跃期|动周期)[;:]\S*?([.\d]+)(?:个周期|天)\S*?([.\d]+)(?:个周?期?|天)/)) ||
-          (match = word.match(/Active Period[;:]([ .,\d]+)cycles every([ .,\d]+)\S*/))) {
+          (match = word.match(/Active.+[;:]([ .,\d]+)cycles every([ .,\d]+)\S*/))) {
         match[1] = match[1].replace(/,/g, '.').replace(/\s/g, '')
         match[2] = match[2].replace(/,/g, '.').replace(/\s/g, '')
         ret.ap = [Number(match[1]), Number(match[2])]
