@@ -42,21 +42,34 @@ class API {
       if (word.length < 6) continue
       let match
       // 识别温泉种类和喷发量
-      if ((match = word.match(/^(\S+)[;:]\S*?([.\d]+)(千?)克\/?秒\S*/))) {
-        const tempMatch = match[0].match(/(-?[.\d]+?)\S?氏?度/)
+      if ((match = word.match(/^(\S+)[;:]\S*?([.\d]+)(千?)克\/?秒\S*/)) ||
+          (match = word.match(/^\b(.+)\b[;:]([ ,.\d]+)([kK]?)g\/?s at.*/))) {
+        const tempMatch = match[0].match(/(-?[.\d]+?)\S?氏?(度)/) ||
+              match[0].match(/at (-?[.\d]+?)(C|c|K|k|[oO]?F)/)
         if (!tempMatch) continue
-        ret.temp = Number(tempMatch[1]) + 273.15 // 摄氏度转化为K
+        if (tempMatch[2] === '度' || tempMatch[2].toLowerCase() === 'c') {
+          ret.temp = Number(tempMatch[1]) + 273.15 // 摄氏度转化为K
+        } else if (tempMatch[2].toLowerCase() === 'k') {
+          ret.temp = Number(tempMatch[1])
+        } else if (tempMatch[2].match(/.?F/)) {
+          ret.temp = Math.round((tempMatch[1] - 32) * 5 / 9 + 273.15) // 华氏度转K
+        } else continue
         ret.type = match[1]
+        match[2] = match[2].replace(/,/g, '.').replace(/\s/g, '')
         ret.output = match[2] * (match[3] ? 1000 : 1) // 识别到千克时进行单位换算
         continue
       }
       // 识别喷发期
-      if ((match = word.match(/喷发\S+?[;:]\S*?(\d+)秒\S+?(\d+)秒/))) {
+      if ((match = word.match(/喷发\S+?[;:]\S*?(\d+)秒\S+?(\d+)秒/)) ||
+          (match = word.match(/Eruption Period[;:]\s?(\d+)s every (\d+)s/))) {
         ret.ep = [Number(match[1]), Number(match[2])]
         continue
       }
       // 识别活跃期
-      if ((match = word.match(/活(?:跃期|动周期)[;:]\S*?([.\d]+)(?:个周期|天)\S*?([.\d]+)(?:个周期|天)/))) {
+      if ((match = word.match(/活(?:跃期|动周期)[;:]\S*?([.\d]+)(?:个周期|天)\S*?([.\d]+)(?:个周期|天)/)) ||
+          (match = word.match(/Active Period[;:]([ .,\d]+)cycles every([ .,\d]+)\S*/))) {
+        match[1] = match[1].replace(/,/g, '.').replace(/\s/g, '')
+        match[2] = match[2].replace(/,/g, '.').replace(/\s/g, '')
         ret.ap = [Number(match[1]), Number(match[2])]
         continue
       }
