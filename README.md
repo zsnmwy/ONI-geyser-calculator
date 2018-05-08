@@ -21,3 +21,24 @@ Good Geyser Not Included
 当在文本库中没有检索到翻译时，将显示默认的文本。
 
 > 文本库中 `title` 资源必须存在，因为其涉及页面标题翻译的问题
+
+## 关于截图识别
+
+接口存放在 `./api` 目录下，需要 nodejs 8+ 环境, 部署时需要在 `./api` 下创建一个 `.env` 的文件，用于保存百度AI OCR API的鉴权数据，其内容如下
+
+``` ini
+# ./api/.env
+PORT = 3000 # node 服务运行端口
+CLIENT_ID = xxx # Baidu API Client ID
+CLIENT_SECRET = xxx # Baidu API Client Secret
+
+```
+### 启动接口服务
+
+``` bash
+cd api
+npm install # 安装依赖
+npm install -g pm2 # 安装 pm2 (一种可自动重启 node 脚本的服务, 注意不要使用 root 角色执行该命令，下同)
+pm2 start index.js --name ONI --watch # 以 daemon 方式启动服务以防机器重启或进程挂掉
+pm2 log ONI # 查看访问日志
+```
