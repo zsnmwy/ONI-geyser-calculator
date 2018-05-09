@@ -29,8 +29,8 @@ Good Geyser Not Included
 ``` ini
 # ./api/.env
 PORT = 3000 # node 服务运行端口
-CLIENT_ID = xxx # Baidu API Client ID
-CLIENT_SECRET = xxx # Baidu API Client Secret
+CLIENT_ID = xxx # Baidu API Client ID   / AK
+CLIENT_SECRET = xxx # Baidu API Client Secret  /  SK
 
 ```
 ### 启动接口服务
