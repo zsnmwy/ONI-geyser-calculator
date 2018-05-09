@@ -81,7 +81,7 @@
         $('#image-recogintion > p').addClass('text-muted');
         $('#before-upload').slideDown();
         $('#after-upload').slideUp();
-        $.post('https://game.mutoe.com/oni/upload', {image: base64}, function(res) {
+        $.post('http://ocr.onical.ga:3000/upload', {image: base64}, function(res) {
             $('.progress-bar').removeClass('infinite');
             $('#image-recogintion > p').removeClass('text-muted');
             $('#before-upload').slideUp();
