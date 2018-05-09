@@ -81,7 +81,7 @@
         $('#image-recogintion > p').addClass('text-muted');
         $('#before-upload').slideDown();
         $('#after-upload').slideUp();
-        $.post('http://ocr.onical.ga:3000/upload', {image: base64}, function(res) {
+        $.post('https://ocr.zsnmwy.net/upload', {image: base64}, function(res) {
             $('.progress-bar').removeClass('infinite');
             $('#image-recogintion > p').removeClass('text-muted');
             $('#before-upload').slideUp();
