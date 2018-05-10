@@ -19,6 +19,8 @@ $.i18n.lang = $.extend(true, $.i18n.lang || {}, {
     zh: {
         title: '缺氧 间歇泉计算器（预览版）',
         sub_title: '看看你的间歇泉有多优秀',
+        issue: '提交问题',
+        how_is_it_work: '这是如何工作的？',
 
         fill_geyser_info: '填写你的间歇泉数据',
         Geyser_Information: '间歇泉信息',
@@ -68,6 +70,8 @@ $.i18n.lang = $.extend(true, $.i18n.lang || {}, {
     'zh-tw': {
         title: '缺氧 間歇泉計算器（預覽版）',
         sub_title: '看看你的間歇泉有多優秀',
+        issue: '提交問題',
+        how_is_it_work: '這是如何工作的？ ',
 
         fill_geyser_info: '填寫你的間歇泉數據',
         Geyser_Information: '間歇泉信息',
@@ -110,7 +114,8 @@ $.i18n.lang = $.extend(true, $.i18n.lang || {}, {
     ja: {
         title: '間欠泉計算器（BETA）',
         sub_title: '間欠泉ガチャゲームへようこそ！',
-
+        issue: '質問を送信する',
+        how_is_it_work: 'これはどのように機能するのですか？',
         fill_geyser_info: '間欠泉の数値を埋めてください',
         Geyser_Information: '間欠泉メッセージ',
         Please_fill_the_geyser_information: '間欠泉の数値を埋めてください',
