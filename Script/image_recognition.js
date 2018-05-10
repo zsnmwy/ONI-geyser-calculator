@@ -126,7 +126,7 @@
         'Leaky_Oil_Fissure':              { temp: 600,    name: ['crude oil', '原油'] },
         'Hydrogen_Vent':                  { temp: 773.15, name: ['hydrogen', '氢'] },
         'Water_Geyser':                   { temp: 368.15, name: ['water', '水'] },
-    }
+    };
 
     function getGeyserName_type_temp (type, temp) {
         for (let name in geyser_name_list_type_temp) {
