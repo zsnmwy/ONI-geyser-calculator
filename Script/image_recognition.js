@@ -86,7 +86,10 @@
             $('#image-recogintion > p').removeClass('text-muted');
             $('#before-upload').slideUp();
             $('#after-upload').slideDown();
-            res.gayser_name = getGeyserName(res.type, res.temp);
+            res.gayser_name = getGeyserName_type_temp(res.type, res.temp);
+            if (Number(res.gayser_name.length) <= 1) {
+                res.gayser_name = getGeyserName_name(res.type);
+            }
             console.log(res);
             fillForm(res);
         });
@@ -101,35 +104,44 @@
         $('#input_Acitve_Period_Min').val(fields.ap[1]);
     }
 
-    var gayser_name_list = {
-        'Cool_Steam_Vent':                { temp: 383.15, name: ['steam', '水蒸气', '蒸汽'] },
+    var geyser_name_list_type_temp = {
+        'Cool_Steam_Vent':                { temp: 383.15, name: ['steam', '水蒸气', '蒸汽']},
         'Steam_Vent':                     { temp: 773.15, name: ['steam', '水蒸气', '蒸汽'] },
-        'Water_Geyser':                   { temp: 368.15, name: ['water', '水'] },
         'Cool_Slush_Geyser':              { temp: 263.15, name: ['polluted water', '污染水'] },
         'Polluted_Water_Vent':            { temp: 303.15, name: ['polluted water', '污染水'] },
         'Volcano':                        { temp: 2000,   name: ['magma', '岩浆'] },
         'Minor_Volcano':                  { temp: 2000,   name: ['magma', '岩浆'] },
         'Carbon_Dioxide_Geyser':          { temp: 218,    name: ['liquid carbon dioxide', '二氧化碳'] },
         'Carbon_Dioxide_Vent':            { temp: 773.15, name: ['carbon dioxide', '二氧化碳'] },
-        'Hydrogen_Vent':                  { temp: 773.15, name: ['hydrogen', '氢'] },
         'Polluted_Oxygen_Vent':           { temp: 773.15, name: ['polluted oxygen', '污染氧'] },
         'Infectious_Polluted_Oxygen_Vent':{ temp: 333.15, name: ['polluted oxygen', '污染氧'] },
+    };
+
+    var geyser_name_list_name = {
         'Chlorine_Gas_Vent':              { temp: 333.15, name: ['chlorine', '氯'] },
         'Natural_Gas_Geyser':             { temp: 423.15, name: ['natural gas', '天然气'] },
-        'Copper_Volcano':                 { temp: 2500,   name: ['molten copper', '铜'] },
+        'Copper_Volcano':                 { temp: 2500,   name: ['molten copper', '铜','熔融铜'] },
         'Iron_Volcano':                   { temp: 2800,   name: ['molten iron', '铁'] },
         'Gold_Volcano':                   { temp: 2900,   name: ['molten gold', '金'] },
         'Leaky_Oil_Fissure':              { temp: 600,    name: ['crude oil', '原油'] },
-    };
+        'Hydrogen_Vent':                  { temp: 773.15, name: ['hydrogen', '氢'] },
+        'Water_Geyser':                   { temp: 368.15, name: ['water', '水'] },
+    }
 
-    function getGeyserName (type, temp) {
-        for (let name in gayser_name_list) {
-            let item = gayser_name_list[name];
+    function getGeyserName_type_temp (type, temp) {
+        for (let name in geyser_name_list_type_temp) {
+            let item = geyser_name_list_type_temp[name];
             if (item.temp !== temp) continue;
             if (item.name.indexOf(type.toLowerCase()) !== -1) return name;
         }
         return '';
     }
 
+    function getGeyserName_name (type) {
+        for (let name in geyser_name_list_name) {
+            let item = geyser_name_list_name[name];
+            if (item.name.indexOf(type.toLowerCase()) !== -1) return name;
+        }
+    }
 
 })();
