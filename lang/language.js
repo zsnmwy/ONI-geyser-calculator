@@ -114,8 +114,8 @@ $.i18n.lang = $.extend(true, $.i18n.lang || {}, {
     ja: {
         title: '間欠泉計算器（BETA）',
         sub_title: '間欠泉ガチャゲームへようこそ！',
-        issue: '質問を送信する',
-        how_is_it_work: 'これはどのように機能するのですか？',
+        issue: '質問はこちらへ',
+        how_is_it_work: '計算原理',
         fill_geyser_info: '間欠泉の数値を埋めてください',
         Geyser_Information: '間欠泉メッセージ',
         Please_fill_the_geyser_information: '間欠泉の数値を埋めてください',
