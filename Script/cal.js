@@ -44,19 +44,19 @@ function geyser_persent(x, k) {
         better_persent = (x * lnx - x + 1) / (k - 1);
         console.log('x<2,better_persent', better_persent);
         geyser_better_persent_view = Math.round(better_persent * 100);
-        document.getElementById("geyser_better_persent").innerHTML = $.i18n.prop('batter_than', geyser_better_persent_view);
+        document.getElementById("geyser_better_persent").innerHTML = $.i18n.prop('better_than', geyser_better_persent_view);
     } else if (2 < x && x < k) {
         better_persent = (x * Math.LN2 - 1) / (k - 1);
         console.log('2 < x && x < k , better_persent', better_persent);
         geyser_better_persent_view = Math.round(better_persent * 100);
-        document.getElementById("geyser_better_persent").innerHTML = $.i18n.prop('batter_than', geyser_better_persent_view);
+        document.getElementById("geyser_better_persent").innerHTML = $.i18n.prop('better_than', geyser_better_persent_view);
     } else if (k < x) {
         twokx = (2 * k) / x;
         twokx_log = Math.log(twokx) / Math.log(e);
         better_persent = (x * twokx_log + x - 2 * k) / (k - 1) + 1;
         console.log('k < x , better_persent', better_persent);
         geyser_better_persent_view = Math.round(better_persent * 100);
-        document.getElementById("geyser_better_persent").innerHTML = $.i18n.prop('batter_than', geyser_better_persent_view);
+        document.getElementById("geyser_better_persent").innerHTML = $.i18n.prop('better_than', geyser_better_persent_view);
     }
 }
 

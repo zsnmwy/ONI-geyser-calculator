@@ -10,7 +10,7 @@ $.i18n.lang = $.extend(true, $.i18n.lang || {}, {
         every: 'every',
         average_daily_output: 'Actual average second output : ${0} kg/s',
         value_of: 'the value of the "${0}" is ${1}',
-        batter_than: 'Better than ${0}% percent of the same type geyser.',
+        better_than: 'Better than ${0}% of the same type geyser.',
 
         image_too_large: 'Picture size is too large.',
 
@@ -27,7 +27,7 @@ $.i18n.lang = $.extend(true, $.i18n.lang || {}, {
         Please_fill_the_geyser_information: '请填写你的间歇泉信息',
         and_click_cal: '然后点击“计算”',
         cal: '计算',
-        batter_than: '你的温泉击败了同类温泉中的 ${0}%',
+        better_than: '你的温泉击败了同类温泉中的 ${0}%',
         average_daily_output: '实际平均秒产出 : ${0} kg/s',
         value_of: '"${0}" 的值为 ${1}',
 
@@ -78,7 +78,7 @@ $.i18n.lang = $.extend(true, $.i18n.lang || {}, {
         Please_fill_the_geyser_information: '請填寫你的間歇泉信息',
         and_click_cal: '然後點擊“計算”',
         cal: '計算',
-        batter_than: '你的溫泉擊敗了同類溫泉中的 ${0}%',
+        better_than: '你的溫泉擊敗了同類溫泉中的 ${0}%',
         average_daily_output: '實際平均秒產出: ${0} kg/s',
         value_of: '"${0}" 的值為 ${1}',
 
@@ -121,7 +121,7 @@ $.i18n.lang = $.extend(true, $.i18n.lang || {}, {
         Please_fill_the_geyser_information: '間欠泉の数値を埋めてください',
         and_click_cal: 'そして「計算開始」ボタンを押してください',
         cal: '計算開始',
-        batter_than: 'この間欠泉は ${0}%の同類の泉を勝った',
+        better_than: 'この間欠泉は ${0}%の同類の泉を勝った',
         average_daily_output: '実際平均秒噴出量： ${0} kg/秒',
         value_of: '"${0}" の数値は ${1}',
 
