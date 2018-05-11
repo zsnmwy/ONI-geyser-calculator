@@ -47,17 +47,26 @@ class API {
             // 识别温泉种类和喷发量
             if ((match = word.match(/^(\S+)[;:]\S*?([.\d]+)(千?)克\/?秒\S*/)) ||
                 (match = word.match(/^\b(.+)\b[;:]([ ,.\d]+)([kK]?)g\/?s at.*/))) {
+
+
                 const tempMatch = match[0].match(/(-?[.\d]+?)\S?氏?(度)/) ||
                     match[0].match(/at (-?[.\d]+?)(C|c|K|k|[oO]?F)/) ||
                     match[0].match(/\S?([-\d]+?)(°C|度|c|C|°c)/);
+
+
                 if (!tempMatch) continue;
-                if (tempMatch[2] === '度' || tempMatch[2].toLowerCase() === 'c' || tempMatch[2] === '°C') {
+
+
+                if (tempMatch[2] === '度' || tempMatch[2].toLowerCase() === 'c' || tempMatch[2] === '°C' || tempMatch[2] === '°c') {
                     ret.temp = Number(tempMatch[1]) + 273.15 // 摄氏度转化为K
                 } else if (tempMatch[2].toLowerCase() === 'k') {
                     ret.temp = Number(tempMatch[1])
                 } else if (tempMatch[2].match(/.?F/)) {
                     ret.temp = Math.round((tempMatch[1] - 32) * 5 / 9 + 273.15) // 华氏度转K
                 } else continue;
+
+
+
                 ret.type = match[1];
                 match[2] = match[2].replace(/,/g, '.').replace(/\s/g, '');
                 ret.match2 = match[2];
