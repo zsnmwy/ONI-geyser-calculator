@@ -1,4 +1,4 @@
-﻿$.i18n.lang = $.extend(true, $.i18n.lang || {}, {
+$.i18n.lang = $.extend(true, $.i18n.lang || {}, {
 
     en: {
         title: 'ONI Geyser Calculator (Preview)',
