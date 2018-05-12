@@ -11,6 +11,7 @@ $.i18n.lang = $.extend(true, $.i18n.lang || {}, {
         average_daily_output: 'Actual average second output : ${0} kg/s',
         value_of: 'the value of the "${0}" is ${1}',
         better_than: 'Better than ${0}% of the same type geyser.',
+        geyser_tile_cycle_output: 'Store: ${0} kg/tile, ${1} tiles/cycle',
 
         image_too_large: 'Picture size is too large.',
 
@@ -30,6 +31,8 @@ $.i18n.lang = $.extend(true, $.i18n.lang || {}, {
         better_than: '你的温泉击败了同类温泉中的 ${0}%',
         average_daily_output: '实际平均秒产出 : ${0} kg/s',
         value_of: '"${0}" 的值为 ${1}',
+        geyser_tile_cycle_output: '储存: ${0} kg/格，${1}格/周期',
+
 
         RT_Eruption: '间歇泉喷发量',
         Eruption_Period: '喷发期',
@@ -81,6 +84,8 @@ $.i18n.lang = $.extend(true, $.i18n.lang || {}, {
         better_than: '你的溫泉擊敗了同類溫泉中的 ${0}%',
         average_daily_output: '實際平均秒產出: ${0} kg/s',
         value_of: '"${0}" 的值為 ${1}',
+        geyser_tile_cycle_output: '儲存: ${0} kg/格，${1}格/週期',
+
 
         RT_Eruption: '間歇泉噴發量',
         Eruption_Period: '噴發期',
@@ -109,6 +114,13 @@ $.i18n.lang = $.extend(true, $.i18n.lang || {}, {
         Iron_Volcano: '鐵火山',
         Gold_Volcano: '金火山',
         Leaky_Oil_Fissure: '漏油裂縫',
+
+        or: '或',
+        click_here: '點擊這裡',
+        to_upload_your_cap: '上傳你的噴泉截圖進行噴泉識別(只支持官中和max漢化)',
+        finish_recognition: '識別完畢；識別結果可能有誤，請檢查後點擊“計算”',
+        reupload: '重新上傳',
+        image_too_large: '圖片尺寸太大，請只截取噴泉相關部分，避免無用信息參與分析',
     },
 
     ja: {
@@ -124,6 +136,8 @@ $.i18n.lang = $.extend(true, $.i18n.lang || {}, {
         better_than: 'この間欠泉は ${0}%の同類の泉を勝った',
         average_daily_output: '実際平均秒噴出量： ${0} kg/秒',
         value_of: '"${0}" の数値は ${1}',
+        geyser_tile_cycle_output: '備蓄: ${0} kg/マス, ${1} マス/サイクル',
+
 
         RT_Eruption: '噴出量',
         Eruption_Period: '噴出間隔',
@@ -197,4 +211,110 @@ $.i18n.lang = $.extend(true, $.i18n.lang || {}, {
         Gold_Volcano: 'Золотой вылкан',
         Leaky_Oil_Fissure: 'Нефтяная трещина',
     },
+
+    es: {
+        title: 'Calculadora de géiseres ONI (Vista previa)',
+        sub_title: 'Buen géiser no incluido',
+        issue: 'Problema',
+        how_is_it_work: 'Cómo funciona?',
+
+        fill_geyser_info: 'Rellene la información del géiser',
+        Geyser_Information: 'Información del géiser',
+        Please_fill_the_geyser_information: 'Por favor, rellene la información del géiser.',
+        and_click_cal: 'Y clicar en "Calcular".',
+        cal: 'Calcular',
+        better_than: 'Mejor que el ${0}% del mismo tipo de géiser.',
+        average_daily_output: 'Promedio real de producción por segundo : ${0} kg/s',
+        geyser_tile_cycle_output: 'Almacén: ${0} kg/bloque, ${1} bloques/ciclo',
+
+
+        RT_Eruption: 'Tasa de erupción',
+        Eruption_Period: 'Periodo de erupción',
+        Acitve_Period: 'Periodo activo', //original var acitve_period
+        g: 'g',
+        s: 's',
+        cycle: 'ciclos',
+        per: ' ', // there is not this string in the game, but you can use 'para'
+        every: 'cada',
+
+        Cool_Steam_Vent: 'Fumarola de vapor fresco',
+        Steam_Vent: 'Fumarola de vapor',
+        Water_Geyser: 'Géiser de agua',
+        Cool_Slush_Geyser: 'Géiser de aguanieve fresca',
+        Polluted_Water_Vent: 'Fumarola de agua contaminada',
+        Minor_Volcano: 'Volcán menor',
+        Volcano: 'Volcán',
+        Carbon_Dioxide_Geyser: 'Géiser de dióxido de carbono',
+        Carbon_Dioxide_Vent: 'Fumarola de dióxido de carbono',
+        Hydrogen_Vent: 'Fumarola de Hidrógeno',
+        Polluted_Oxygen_Vent: 'Fumarola de oxígeno contaminado',
+        Infectious_Polluted_Oxygen_Vent: 'Fumarola de oxígeno contaminado infeccioso',
+        Chlorine_Gas_Vent: 'Fumarola de gas cloro',
+        Natural_Gas_Geyser: 'Geíser de gas natural',
+        Copper_Volcano: 'Volcán de cobre',
+        Iron_Volcano: 'Volcán de hierro',
+        Gold_Volcano: 'Volcán de oro',
+        Leaky_Oil_Fissure: 'Fisura con fugas de crudo',
+
+        or: 'o',
+        click_here: 'clicar aquí',
+        to_upload_your_cap: 'Para subir su captura de pantalla del géiser.',
+        finish_recognition: 'El reconocimiento está completo. el resultado del reconocimiento puede ser incorrecto. Por favor verifiquelo y haga clic en "Calcular"',
+        reupload: 'Volver a subir',
+        image_too_large: 'El tamaño de la imagen es demasiado grande.',
+
+    },
+
+    fr: {
+        title: 'Calculatrice de Geysers (Aperçu)',
+        sub_title: 'Bon geyser non inclus',
+        issue: 'Problème',
+        how_is_it_work: 'Comment ça marche ?',
+
+        fill_geyser_info: 'Remplissez les informations du geyser',
+        Geyser_Information: 'Informations du geyser',
+        Please_fill_the_geyser_information: 'Veuillez remplir les informations du geyser.',
+        and_click_cal: 'Et cliquez sur "Calculer".',
+        cal: 'Calculer',
+        better_than: 'Mieux que le ${0}% du même type de geyser.',
+        average_daily_output: 'Moyenne réelle de production par seconde : ${0} kg/s',
+        geyser_tile_cycle_output: 'Dépôt: ${0} kg/bloc, ${1} blocs/cycle',
+
+
+        RT_Eruption: "Taux d'eruption", //character escape (?) please change if i'm wrong
+        Eruption_Period: "Période d'éruption", // char_esc
+        Acitve_Period: "Période d'activité", //original var acitve, char_esc
+        g: 'g',
+        s: 's',
+        cycle: 'cycles',
+        per: ' ', // there is not this string in the game, but you can use 'pour'
+        every: 'tous les',
+
+        Cool_Steam_Vent: 'Fumerolle de vapeur fraîche',
+        Steam_Vent: 'Fumerolle de vapeur',
+        Water_Geyser: "Geyser d'eau", // char_esc
+        Cool_Slush_Geyser: 'Geyser de neige fondue froide',
+        Polluted_Water_Vent: "Fumerolle d'eau polluée", //char_esc
+        Minor_Volcano: 'Volcan mineur',
+        Volcano: 'Volcan',
+        Carbon_Dioxide_Geyser: 'Geyser de dioxyde de carbone',
+        Carbon_Dioxide_Vent: 'Fumerolle de dioxyde de carbone',
+        Hydrogen_Vent: "Fumerolle d'hydrogène", //char_esc
+        Polluted_Oxygen_Vent: "Fumerolle d'oxygène pollué", //char_esc
+        Infectious_Polluted_Oxygen_Vent: "Fumerolle d'oxygène pollué infectieux", //char_esc
+        Chlorine_Gas_Vent: 'Fumerolle de chlore gazeux',
+        Natural_Gas_Geyser: 'Geyser de gaz naturel',
+        Copper_Volcano: 'Volcan de cuivre',
+        Iron_Volcano: 'Volcan de fer',
+        Gold_Volcano: "Volcan d'or", //char_esc
+        Leaky_Oil_Fissure: 'Fissure de pétrole brut',
+
+        or: 'ou',
+        click_here: 'cliquez ici',
+        to_upload_your_cap: "Pour télécharger votre capture d'écran du geyser.", //char_esc
+        finish_recognition: 'La reconnaissance est terminée. le résultat de la reconnaissance peut être incorrect. Veuillez vérifier et cliquer sur "Calculer"',
+        reupload: 'Télécharger à nouveau',
+        image_too_large: "La taille de l'image est trop grande.", //char_esc`
+    }
+
 });

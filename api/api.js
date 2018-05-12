@@ -47,8 +47,6 @@ class API {
             // 识别温泉种类和喷发量
             if ((match = word.match(/^(\S+)[;:]\S*?([.\d]+)(千?)克\/?秒\S*/)) ||
                 (match = word.match(/^\b(.+)\b[;:]([ ,.\d]+)([kK]?)g\/?s at.*/))) {
-
-
                 const tempMatch = match[0].match(/(-?[.\d]+?)\S?氏?(度)/) ||
                     match[0].match(/at (-?[.\d]+?)(C|c|K|k|[oO]?F)/) ||
                     match[0].match(/\S?([-\d]+?)(°C|度|c|C|°c)/);
