@@ -1,4 +1,4 @@
-$.i18n.lang = $.extend(true, $.i18n.lang || {}, {
+﻿$.i18n.lang = $.extend(true, $.i18n.lang || {}, {
 
     en: {
         title: 'ONI Geyser Calculator (Preview)',
@@ -152,5 +152,48 @@ $.i18n.lang = $.extend(true, $.i18n.lang || {}, {
         Iron_Volcano: '鉄火山',
         Gold_Volcano: '金火山',
         Leaky_Oil_Fissure: 'オイル噴出口',
+    },
+
+    ru: {
+        title: 'ONI Калькулятор гейзера (Бета)',
+        sub_title: 'Хороший гейзеры не включены',
+        issue: 'Вопросы',
+        how_is_it_work: 'Как это работает?',
+        fill_geyser_info: 'Заполните информацию о гейзере',
+        Geyser_Information: 'Информация о гейзере',
+        Please_fill_the_geyser_information: 'Пожалуйста, заполните информацию о гейзере',
+        and_click_cal: 'и нажмите "Рассчитать"',
+        cal: 'Рассчитать',
+        better_than: 'Лучше, чем ${0}% гейзеров такого же типа.',
+        average_daily_output: 'Реальная средняя производительность： ${0} кг/сек.',
+        value_of: 'Значение "${0}" равно ${1}',
+
+        RT_Eruption: 'Объём за секунду',
+        Eruption_Period: 'Периодичность извержения',
+        Acitve_Period: 'Период активности',
+        g: 'г',
+        s: 'сек',
+        cycle: 'циклов',
+        per: ' ', 
+        every: 'каждые',
+
+        Cool_Steam_Vent: 'Воронка холодного пара',
+        Steam_Vent: 'Воронка пара',
+        Water_Geyser: 'Гейзер (воды)',
+        Cool_Slush_Geyser: 'Гейзер холодной шуги',
+        Polluted_Water_Vent: 'Воронка загрязненной воды',
+        Minor_Volcano: 'Маленький вулкан',
+        Volcano: 'Вулкан',
+        Carbon_Dioxide_Geyser: 'Гейзер двуокиси углерода',
+        Carbon_Dioxide_Vent: 'Воронка углекислого газа',
+        Hydrogen_Vent: 'Воронка водорода',
+        Polluted_Oxygen_Vent: 'Воронка горячего загрязненного кислорода',
+        Infectious_Polluted_Oxygen_Vent: 'Воронка загрязненного кислорода',
+        Chlorine_Gas_Vent: 'Воронка хлорного газа',
+        Natural_Gas_Geyser: 'Гейзер природного газа',
+        Copper_Volcano: 'Медный вулкан',
+        Iron_Volcano: 'Железный вулкан',
+        Gold_Volcano: 'Золотой вылкан',
+        Leaky_Oil_Fissure: 'Нефтяная трещина',
     },
 });
