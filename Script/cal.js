@@ -37,6 +37,11 @@ function cal_x_k() {
     console.log('k', k);
 }
 
+function geyser_tile() {
+    geyser_tile_cycle = n_tofix * 600 / geyser_tile_one;
+    document.getElementById("geyser_tile_cycle_output").innerHTML = $.i18n.prop('geyser_tile_cycle_output', geyser_tile_one, geyser_tile_cycle.toFixed(2));
+}
+
 function geyser_persent(x, k) {
     var e = 2.72;
     lnx = Math.log(x) / Math.log(e);
@@ -68,63 +73,99 @@ function start() {
     console.log('Max_Daily_Eruption', Max_Daily_Eruption);
     cal_x_k();
     geyser_persent(x, k);
+    geyser_tile();
 }
 
 function Daily_Eruption_duge(geyser_name) {
     if (geyser_name == 'Cool_Steam_Vent') {
         Min_Daily_Eruption = Cool_Steam_Vent.Min_Daily_Eruption;
         Max_Daily_Eruption = Cool_Steam_Vent.Max_Daily_Eruption;
+        geyser_tile_one = Cool_Steam_Vent.store_tile_one;
     } else if (geyser_name == 'Steam_Vent') {
         Min_Daily_Eruption = Steam_Vent.Min_Daily_Eruption;
         Max_Daily_Eruption = Steam_Vent.Max_Daily_Eruption;
+        geyser_tile_one = Steam_Vent.store_tile_one;
+
     } else if (geyser_name == 'Water_Geyser') {
         Min_Daily_Eruption = Water_Geyser.Min_Daily_Eruption;
         Max_Daily_Eruption = Water_Geyser.Max_Daily_Eruption;
+        geyser_tile_one = Water_Geyser.store_tile_one;
+
     } else if (geyser_name == 'Cool_Slush_Geyser') {
         Min_Daily_Eruption = Cool_Slush_Geyser.Min_Daily_Eruption;
         Max_Daily_Eruption = Cool_Slush_Geyser.Max_Daily_Eruption;
+        geyser_tile_one = Cool_Slush_Geyser.store_tile_one;
+
     } else if (geyser_name == 'Polluted_Water_Vent') {
         Min_Daily_Eruption = Polluted_Water_Vent.Min_Daily_Eruption;
         Max_Daily_Eruption = Polluted_Water_Vent.Max_Daily_Eruption;
+        geyser_tile_one = Polluted_Water_Vent.store_tile_one;
+
     } else if (geyser_name == 'Minor_Volcano') {
         Min_Daily_Eruption = Minor_Volcano.Min_Daily_Eruption;
         Max_Daily_Eruption = Minor_Volcano.Max_Daily_Eruption;
+        geyser_tile_one = Minor_Volcano.store_tile_one;
+
     } else if (geyser_name == 'Volcano') {
         Min_Daily_Eruption = Volcano.Min_Daily_Eruption;
         Max_Daily_Eruption = Volcano.Max_Daily_Eruption;
+        geyser_tile_one = Volcano.store_tile_one;
+
     } else if (geyser_name == 'Carbon_Dioxide_Geyser') {
         Min_Daily_Eruption = Carbon_Dioxide_Geyser.Min_Daily_Eruption;
         Max_Daily_Eruption = Carbon_Dioxide_Geyser.Max_Daily_Eruption;
+        geyser_tile_one = Carbon_Dioxide_Geyser.store_tile_one;
+
     } else if (geyser_name == 'Carbon_Dioxide_Vent') {
         Min_Daily_Eruption = Carbon_Dioxide_Vent.Min_Daily_Eruption;
         Max_Daily_Eruption = Carbon_Dioxide_Vent.Max_Daily_Eruption;
+        geyser_tile_one = Carbon_Dioxide_Vent.store_tile_one;
+
     } else if (geyser_name == 'Hydrogen_Vent') {
         Min_Daily_Eruption = Hydrogen_Vent.Min_Daily_Eruption;
         Max_Daily_Eruption = Hydrogen_Vent.Max_Daily_Eruption;
+        geyser_tile_one = Hydrogen_Vent.store_tile_one;
+
     } else if (geyser_name == 'Polluted_Oxygen_Vent') {
         Min_Daily_Eruption = Polluted_Oxygen_Vent.Min_Daily_Eruption;
         Max_Daily_Eruption = Polluted_Oxygen_Vent.Max_Daily_Eruption;
+        geyser_tile_one = Polluted_Oxygen_Vent.store_tile_one;
+
     } else if (geyser_name == 'Infectious_Polluted_Oxygen_Vent') {
         Min_Daily_Eruption = Infectious_Polluted_Oxygen_Vent.Min_Daily_Eruption;
         Max_Daily_Eruption = Infectious_Polluted_Oxygen_Vent.Max_Daily_Eruption;
+        geyser_tile_one = Infectious_Polluted_Oxygen_Vent.store_tile_one;
+
     } else if (geyser_name == 'Chlorine_Gas_Vent') {
         Min_Daily_Eruption = Chlorine_Gas_Vent.Min_Daily_Eruption;
         Max_Daily_Eruption = Chlorine_Gas_Vent.Max_Daily_Eruption;
+        geyser_tile_one = Chlorine_Gas_Vent.store_tile_one;
+
     } else if (geyser_name == 'Natural_Gas_Geyser') {
         Min_Daily_Eruption = Natural_Gas_Geyser.Min_Daily_Eruption;
         Max_Daily_Eruption = Natural_Gas_Geyser.Max_Daily_Eruption;
+        geyser_tile_one = Natural_Gas_Geyser.store_tile_one;
+
     } else if (geyser_name == 'Copper_Volcano') {
         Min_Daily_Eruption = Copper_Volcano.Min_Daily_Eruption;
         Max_Daily_Eruption = Copper_Volcano.Max_Daily_Eruption;
+        geyser_tile_one = Copper_Volcano.store_tile_one;
+
     } else if (geyser_name == 'Iron_Volcano') {
         Min_Daily_Eruption = Iron_Volcano.Min_Daily_Eruption;
         Max_Daily_Eruption = Iron_Volcano.Max_Daily_Eruption;
+        geyser_tile_one = Iron_Volcano.store_tile_one;
+
     } else if (geyser_name == 'Gold_Volcano') {
         Min_Daily_Eruption = Gold_Volcano.Min_Daily_Eruption;
         Max_Daily_Eruption = Gold_Volcano.Max_Daily_Eruption;
+        geyser_tile_one = Gold_Volcano.store_tile_one;
+
     } else if (geyser_name == 'Leaky_Oil_Fissure') {
         Min_Daily_Eruption = Leaky_Oil_Fissure.Min_Daily_Eruption;
         Max_Daily_Eruption = Leaky_Oil_Fissure.Max_Daily_Eruption;
+        geyser_tile_one = Leaky_Oil_Fissure.store_tile_one;
+
     }
 }
 
@@ -132,91 +173,114 @@ function Daily_Eruption_duge(geyser_name) {
 var Cool_Steam_Vent = {
     Min_Daily_Eruption: 200,
     Max_Daily_Eruption: 2500,
+    store_tile_one: 20,
 };
 
 var Steam_Vent = {
     Min_Daily_Eruption: 10,
     Max_Daily_Eruption: 100,
+    store_tile_one: 20,
 };
 
 var Water_Geyser = {
     Min_Daily_Eruption: 500,
     Max_Daily_Eruption: 5000,
+    store_tile_one: 1000,
 };
 
 var Cool_Slush_Geyser = {
     Min_Daily_Eruption: 500,
     Max_Daily_Eruption: 5000,
+    store_tile_one: 1000,
 };
 
 var Polluted_Water_Vent = {
     Min_Daily_Eruption: 500,
     Max_Daily_Eruption: 5000,
+    store_tile_one: 1000,
 };
 
 var Minor_Volcano = {
     Min_Daily_Eruption: 100,
     Max_Daily_Eruption: 1000,
+    store_tile_one: 1840,
 };
 
 var Volcano = {
     Min_Daily_Eruption: 200,
     Max_Daily_Eruption: 2000,
+    store_tile_one: 1840,
 };
 
 var Carbon_Dioxide_Geyser = {
     Min_Daily_Eruption: 3,
     Max_Daily_Eruption: 30,
+    store_tile_one: 2000,
 };
 
 var Carbon_Dioxide_Vent = {
     Min_Daily_Eruption: 5,
     Max_Daily_Eruption: 50,
+    store_tile_one: 20,
 };
 
 var Hydrogen_Vent = {
     Min_Daily_Eruption: 5,
     Max_Daily_Eruption: 50,
+    store_tile_one: 20,
 };
 
 var Polluted_Oxygen_Vent = {
     Min_Daily_Eruption: 15,
     Max_Daily_Eruption: 180,
+    store_tile_one: 20,
 };
 
 var Infectious_Polluted_Oxygen_Vent = {
     Min_Daily_Eruption: 15,
     Max_Daily_Eruption: 180,
+    store_tile_one: 20,
 };
 
 var Chlorine_Gas_Vent = {
     Min_Daily_Eruption: 15,
     Max_Daily_Eruption: 180,
+    store_tile_one: 20,
 };
 
 var Natural_Gas_Geyser = {
     Min_Daily_Eruption: 10,
     Max_Daily_Eruption: 100,
+    store_tile_one: 20,
+
 };
 
 var Copper_Volcano = {
     Min_Daily_Eruption: 50,
     Max_Daily_Eruption: 500,
+    store_tile_one: 3870,
+
 };
 
 
 var Iron_Volcano = {
     Min_Daily_Eruption: 50,
     Max_Daily_Eruption: 500,
+    store_tile_one: 7870,
+
 };
 
 
 var Gold_Volcano = {
     Min_Daily_Eruption: 50,
     Max_Daily_Eruption: 500,
+    store_tile_one: 9970,
+
 };
 
 var Leaky_Oil_Fissure = {
     Min_Daily_Eruption: 1,
     Max_Daily_Eruption: 250,
+    store_tile_one: 870,
+
 };
