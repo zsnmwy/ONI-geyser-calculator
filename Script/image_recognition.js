@@ -93,6 +93,14 @@
             console.log(res);
             fillForm(res);
         });
+        document.getElementById("use_up_information").innerHTML="";
+        document.getElementById("Bristle_Blossom").innerHTML="";
+        document.getElementById("Sleet_Wheat").innerHTML="";
+        document.getElementById("Pincha_Pepper").innerHTML="";
+        document.getElementById("Thimble_Reed").innerHTML="";
+        document.getElementById("Electrolyzer").innerHTML="";
+        document.getElementById("Fertilizer_Synthesizer").innerHTML="";
+        document.getElementById("Carbon_Skimmer").innerHTML="";
     }
 
     function fillForm(fields) {
@@ -105,7 +113,7 @@
     }
 
     var geyser_name_list_type_temp = {
-        'Cool_Steam_Vent':                { temp: 383.15, name: ['steam', '水蒸气', '蒸汽']},
+        'Cool_Steam_Vent':                {temp: 383.15, name: ['steam', '水蒸气', '蒸汽']},
         'Steam_Vent':                     { temp: 773.15, name: ['steam', '水蒸气', '蒸汽'] },
         'Cool_Slush_Geyser':              { temp: 263.15, name: ['polluted water', '污染水'] },
         'Polluted_Water_Vent':            { temp: 303.15, name: ['polluted water', '污染水'] },

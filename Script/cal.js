@@ -9,18 +9,18 @@ function get_input() {
     // 最小值大于最大值时交换
 
     if (Eruption_Period_Min_Num > Eruption_Period_Max_Num) {
-        [Eruption_Period_Min_Num, Eruption_Period_Max_Num] =  [Eruption_Period_Max_Num, Eruption_Period_Min_Num];
+        [Eruption_Period_Min_Num, Eruption_Period_Max_Num] = [Eruption_Period_Max_Num, Eruption_Period_Min_Num];
     }
 
     if (Acitve_Period_Min_Num > Acitve_Period_Max_Num) {
-        [Acitve_Period_Min_Num, Acitve_Period_Max_Num] =  [Acitve_Period_Max_Num, Acitve_Period_Min_Num];
+        [Acitve_Period_Min_Num, Acitve_Period_Max_Num] = [Acitve_Period_Max_Num, Acitve_Period_Min_Num];
     }
 
-    console.log('RT Eruption',RT_Eruption);
-    console.log('Eruption_Period_Min_Num',Eruption_Period_Min_Num);
-    console.log('Eruption_Period_Max_Num',Eruption_Period_Max_Num);
-    console.log('Acitve_Period_Min_Num',Acitve_Period_Min_Num);
-    console.log('Acitve_Period_Max_Num',Acitve_Period_Max_Num);
+    console.log('RT Eruption', RT_Eruption);
+    console.log('Eruption_Period_Min_Num', Eruption_Period_Min_Num);
+    console.log('Eruption_Period_Max_Num', Eruption_Period_Max_Num);
+    console.log('Acitve_Period_Min_Num', Acitve_Period_Min_Num);
+    console.log('Acitve_Period_Max_Num', Acitve_Period_Max_Num);
 }
 
 function cal_x_k() {
@@ -40,6 +40,51 @@ function cal_x_k() {
 function geyser_tile() {
     geyser_tile_cycle = n_tofix * 600 / geyser_tile_one;
     document.getElementById("geyser_tile_cycle_output").innerHTML = $.i18n.prop('geyser_tile_cycle_output', geyser_tile_one, geyser_tile_cycle.toFixed(2));
+}
+
+function use_up() {
+    document.getElementById("use_up_information").innerHTML="";
+    document.getElementById("Bristle_Blossom").innerHTML="";
+    document.getElementById("Sleet_Wheat").innerHTML="";
+    document.getElementById("Pincha_Pepper").innerHTML="";
+    document.getElementById("Thimble_Reed").innerHTML="";
+    document.getElementById("Electrolyzer").innerHTML="";
+    document.getElementById("Fertilizer_Synthesizer").innerHTML="";
+    document.getElementById("Carbon_Skimmer").innerHTML="";
+    console.log("geyser_tpye",geyser_tpye);
+
+
+
+    if (geyser_tpye == "fluid") {
+
+        Bristle_Blossom = 33.33;
+        Sleet_Wheat = 33.33;
+        Pincha_Pepper = 58.33;
+        Thimble_Reed = 266.67;
+        Electrolyzer = 1000;
+        Fertilizer_Synthesizer = 1000;
+        Carbon_Skimmer = 1000;
+
+        Bristle_Blossom_count = n * 1000 / Bristle_Blossom;
+        Sleet_Wheat_count = n * 1000 / Sleet_Wheat;
+        Pincha_Pepper_count = n * 1000 / Pincha_Pepper;
+        Thimble_Reed_count = n * 1000 / Thimble_Reed;
+        Electrolyzer_count = n * 1000 / Electrolyzer;
+        Fertilizer_Synthesizer_count = n * 1000 / Fertilizer_Synthesizer;
+        Carbon_Skimmer_count = n * 1000 / Carbon_Skimmer;
+
+
+        document.getElementById("use_up_information").innerHTML = $.i18n.prop('use_up_information');
+        document.getElementById("Bristle_Blossom").innerHTML = $.i18n.prop('Bristle_Blossom',Bristle_Blossom,Bristle_Blossom_count.toFixed(2));
+        document.getElementById("Sleet_Wheat").innerHTML = $.i18n.prop('Sleet_Wheat',Sleet_Wheat,Sleet_Wheat_count.toFixed(2));
+        document.getElementById("Pincha_Pepper").innerHTML = $.i18n.prop('Pincha_Pepper',Pincha_Pepper,Pincha_Pepper_count.toFixed(2));
+        document.getElementById("Thimble_Reed").innerHTML = $.i18n.prop('Thimble_Reed',Thimble_Reed,Thimble_Reed_count.toFixed(2));
+        document.getElementById("Electrolyzer").innerHTML = $.i18n.prop('Electrolyzer',Electrolyzer,Electrolyzer_count.toFixed(2));
+        document.getElementById("Fertilizer_Synthesizer").innerHTML = $.i18n.prop('Fertilizer_Synthesizer',Fertilizer_Synthesizer,Fertilizer_Synthesizer_count.toFixed(2));
+        document.getElementById("Carbon_Skimmer").innerHTML = $.i18n.prop('Carbon_Skimmer',Carbon_Skimmer,Carbon_Skimmer_count.toFixed(2));
+
+
+    }
 }
 
 function geyser_persent(x, k) {
@@ -66,6 +111,7 @@ function geyser_persent(x, k) {
 }
 
 function start() {
+    geyser_tpye = null;
     geyser_name = document.getElementById("Geyser_type").value;
     console.log('geyser_name', geyser_name);
     Daily_Eruption_duge(geyser_name);
@@ -74,6 +120,7 @@ function start() {
     cal_x_k();
     geyser_persent(x, k);
     geyser_tile();
+    use_up();
 }
 
 function Daily_Eruption_duge(geyser_name) {
@@ -81,25 +128,34 @@ function Daily_Eruption_duge(geyser_name) {
         Min_Daily_Eruption = Cool_Steam_Vent.Min_Daily_Eruption;
         Max_Daily_Eruption = Cool_Steam_Vent.Max_Daily_Eruption;
         geyser_tile_one = Cool_Steam_Vent.store_tile_one;
+        geyser_tpye = "fluid"
     } else if (geyser_name == 'Steam_Vent') {
         Min_Daily_Eruption = Steam_Vent.Min_Daily_Eruption;
         Max_Daily_Eruption = Steam_Vent.Max_Daily_Eruption;
         geyser_tile_one = Steam_Vent.store_tile_one;
+        geyser_tpye = "fluid"
+
 
     } else if (geyser_name == 'Water_Geyser') {
         Min_Daily_Eruption = Water_Geyser.Min_Daily_Eruption;
         Max_Daily_Eruption = Water_Geyser.Max_Daily_Eruption;
         geyser_tile_one = Water_Geyser.store_tile_one;
+        geyser_tpye = "fluid"
+
 
     } else if (geyser_name == 'Cool_Slush_Geyser') {
         Min_Daily_Eruption = Cool_Slush_Geyser.Min_Daily_Eruption;
         Max_Daily_Eruption = Cool_Slush_Geyser.Max_Daily_Eruption;
         geyser_tile_one = Cool_Slush_Geyser.store_tile_one;
+        geyser_tpye = "fluid"
+
 
     } else if (geyser_name == 'Polluted_Water_Vent') {
         Min_Daily_Eruption = Polluted_Water_Vent.Min_Daily_Eruption;
         Max_Daily_Eruption = Polluted_Water_Vent.Max_Daily_Eruption;
         geyser_tile_one = Polluted_Water_Vent.store_tile_one;
+        geyser_tpye = "fluid"
+
 
     } else if (geyser_name == 'Minor_Volcano') {
         Min_Daily_Eruption = Minor_Volcano.Min_Daily_Eruption;

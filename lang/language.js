@@ -15,6 +15,16 @@ $.i18n.lang = $.extend(true, $.i18n.lang || {}, {
 
         image_too_large: 'Picture size is too large.',
 
+        use_up_information:'Machines & Plants Ratio',
+        Bristle_Blossom:'Bristle Blossom Comsumption ${0} g/s, Number ${1}',
+        Sleet_Wheat:'Sleet Wheat Comsumption ${0} g/s, Number ${1}',
+        Pincha_Pepper:'Pincha Pepper Comsumption ${0} g/s, Number ${1}',
+        Thimble_Reed:'Thimble Reed Comsumption ${0} g/s, Number ${1}',
+        Oil_Well:'Oil Well Comsumption ${0} g/s, Number ${1}',
+        Electrolyzer:'Electrolyzer Comsumption ${0} g/s, Number ${1}',
+        Fertilizer_Synthesizer:'Fertilizer Synthesizer Comsumption ${0} g/s, Number ${1}',
+        Carbon_Skimmer:'Carbon Skimmer Comsumption ${0} g/s, Number ${1}',
+
     },
 
     zh: {
@@ -68,6 +78,16 @@ $.i18n.lang = $.extend(true, $.i18n.lang || {}, {
         finish_recognition: '识别完毕；识别结果可能有误，请检查后点击“计算”',
         reupload: '重新上传',
         image_too_large: '图片尺寸太大，请只截取喷泉相关部分，避免无用信息参与分析',
+
+        use_up_information:'这喷泉有多能干',
+        Bristle_Blossom:'刺花 ${0}g/s， ${1}株',
+        Sleet_Wheat:'小麦 ${0}g/s， ${1}株',
+        Pincha_Pepper:'吊椒 ${0}g/s， ${1}株',
+        Thimble_Reed:'芦苇 ${0}g/s， ${1}株',
+        Oil_Well:'油井 ${0}g/s， ${1}个',
+        Electrolyzer:'电解水 ${0}g/s， ${1}个',
+        Fertilizer_Synthesizer:'肥料机 ${0}g/s， ${1}个',
+        Carbon_Skimmer:'碳素分离器 ${0}g/s， ${1}个',
     },
 
     'zh-tw': {
@@ -121,6 +141,16 @@ $.i18n.lang = $.extend(true, $.i18n.lang || {}, {
         finish_recognition: '識別完畢；識別結果可能有誤，請檢查後點擊“計算”',
         reupload: '重新上傳',
         image_too_large: '圖片尺寸太大，請只截取噴泉相關部分，避免無用信息參與分析',
+
+        use_up_information:'這噴泉有多能幹',
+        Bristle_Blossom:'刺花 ${0}g/s， ${1}株',
+        Sleet_Wheat:'小麥 ${0}g/s， ${1}株',
+        Pincha_Pepper:'吊椒 ${0}g/s， ${1}株',
+        Thimble_Reed:'蘆葦 ${0}g/s， ${1}株',
+        Oil_Well:'油井 ${0}g/s， ${1}個',
+        Electrolyzer:'電解水 ${0}g/s， ${1}個',
+        Fertilizer_Synthesizer:'肥料機 ${0}g/s， ${1}個',
+        Carbon_Skimmer:'碳素分離器 ${0}g/s， ${1}個',
     },
 
     ja: {
