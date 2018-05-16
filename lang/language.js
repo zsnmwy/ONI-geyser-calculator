@@ -249,6 +249,16 @@ $.i18n.lang = $.extend(true, $.i18n.lang || {}, {
         Iron_Volcano: 'Железный вулкан',
         Gold_Volcano: 'Золотой вылкан',
         Leaky_Oil_Fissure: 'Нефтяная трещина',
+
+        use_up_information:'Machines & Plants Ratio',
+        Bristle_Blossom:'Bristle Blossom Comsumption ${0} g/s, Number ${1}',
+        Sleet_Wheat:'Sleet Wheat Comsumption ${0} g/s, Number ${1}',
+        Pincha_Pepper:'Pincha Pepper Comsumption ${0} g/s, Number ${1}',
+        Thimble_Reed:'Thimble Reed Comsumption ${0} g/s, Number ${1}',
+        Oil_Well:'Oil Well Comsumption ${0} g/s, Number ${1}',
+        Electrolyzer:'Electrolyzer Comsumption ${0} g/s, Number ${1}',
+        Fertilizer_Synthesizer:'Fertilizer Synthesizer Comsumption ${0} g/s, Number ${1}',
+        Carbon_Skimmer:'Carbon Skimmer Comsumption ${0} g/s, Number ${1}',
     },
 
     es: {
@@ -302,6 +312,17 @@ $.i18n.lang = $.extend(true, $.i18n.lang || {}, {
         reupload: 'Volver a subir',
         image_too_large: 'El tamaño de la imagen es demasiado grande.',
 
+
+        use_up_information:'Machines & Plants Ratio',
+        Bristle_Blossom:'Bristle Blossom Comsumption ${0} g/s, Number ${1}',
+        Sleet_Wheat:'Sleet Wheat Comsumption ${0} g/s, Number ${1}',
+        Pincha_Pepper:'Pincha Pepper Comsumption ${0} g/s, Number ${1}',
+        Thimble_Reed:'Thimble Reed Comsumption ${0} g/s, Number ${1}',
+        Oil_Well:'Oil Well Comsumption ${0} g/s, Number ${1}',
+        Electrolyzer:'Electrolyzer Comsumption ${0} g/s, Number ${1}',
+        Fertilizer_Synthesizer:'Fertilizer Synthesizer Comsumption ${0} g/s, Number ${1}',
+        Carbon_Skimmer:'Carbon Skimmer Comsumption ${0} g/s, Number ${1}',
+
     },
 
     fr: {
@@ -354,6 +375,16 @@ $.i18n.lang = $.extend(true, $.i18n.lang || {}, {
         finish_recognition: 'La reconnaissance est terminée. le résultat de la reconnaissance peut être incorrect. Veuillez vérifier et cliquer sur "Calculer"',
         reupload: 'Télécharger à nouveau',
         image_too_large: "La taille de l'image est trop grande.", //char_esc`
+
+        use_up_information:'Machines & Plants Ratio',
+        Bristle_Blossom:'Bristle Blossom Comsumption ${0} g/s, Number ${1}',
+        Sleet_Wheat:'Sleet Wheat Comsumption ${0} g/s, Number ${1}',
+        Pincha_Pepper:'Pincha Pepper Comsumption ${0} g/s, Number ${1}',
+        Thimble_Reed:'Thimble Reed Comsumption ${0} g/s, Number ${1}',
+        Oil_Well:'Oil Well Comsumption ${0} g/s, Number ${1}',
+        Electrolyzer:'Electrolyzer Comsumption ${0} g/s, Number ${1}',
+        Fertilizer_Synthesizer:'Fertilizer Synthesizer Comsumption ${0} g/s, Number ${1}',
+        Carbon_Skimmer:'Carbon Skimmer Comsumption ${0} g/s, Number ${1}',
     }
 
 });
