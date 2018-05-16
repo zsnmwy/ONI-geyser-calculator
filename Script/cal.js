@@ -62,7 +62,7 @@ function use_up() {
         Pincha_Pepper = 58.33;
         Thimble_Reed = 266.67;
         Electrolyzer = 1000;
-        Fertilizer_Synthesizer = 1000;
+        Fertilizer_Synthesizer = 150;
         Carbon_Skimmer = 1000;
 
         Bristle_Blossom_count = n * 1000 / Bristle_Blossom;
