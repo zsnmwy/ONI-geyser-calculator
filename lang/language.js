@@ -164,9 +164,9 @@ $.i18n.lang = $.extend(true, $.i18n.lang || {}, {
         and_click_cal: 'そして「計算開始」ボタンを押してください',
         cal: '計算開始',
         better_than: 'この間欠泉は ${0}%の同類の泉を勝った',
-        average_daily_output: '実際平均秒噴出量： ${0} kg/秒',
+        average_daily_output: '実際平均秒噴出量：${0} kg/秒',
         value_of: '"${0}" の数値は ${1}',
-        geyser_tile_cycle_output: '備蓄: ${0} kg/マス, ${1} マス/サイクル',
+        geyser_tile_cycle_output: '備蓄：${0} kg/マス, ${1} マス/サイクル',
 
 
         RT_Eruption: '噴出量',
@@ -196,6 +196,15 @@ $.i18n.lang = $.extend(true, $.i18n.lang || {}, {
         Iron_Volcano: '鉄火山',
         Gold_Volcano: '金火山',
         Leaky_Oil_Fissure: 'オイル噴出口',
+        use_up_information:'使用情報',
+        Bristle_Blossom:'ブリッスルブロッサム ${0}g/s、 ${1}本',
+        Sleet_Wheat:'スリートウィート ${0}g/s、 ${1}本',
+        Pincha_Pepper:'ピンチャペッパー ${0}g/s、 ${1}本',
+        Thimble_Reed:'シンブルリード ${0}g/s、 ${1}本',
+        Oil_Well:'油井 ${0}g/s、 ${1}台',
+        Electrolyzer:'電解装置 ${0}g/s、 ${1}台',
+        Fertilizer_Synthesizer:'肥料合成機 ${0}g/s、 ${1}台',
+        Carbon_Skimmer:'炭素スキマー ${0}g/s、 ${1}台',
     },
 
     ru: {
