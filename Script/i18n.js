@@ -78,6 +78,7 @@
         $.i18n.lang = {}
         $.i18n.lang[locale] = {}
       }
+      if (!$.i18n.lang[locale]) $.i18n.lang[locale] = {}
       if ($(elem).attr('lang-key') == undefined) {
         //传入的是资源id
         id = elem
