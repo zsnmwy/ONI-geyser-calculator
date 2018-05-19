@@ -24,21 +24,35 @@ Good Geyser Not Included
 
 ## 关于截图识别
 
-接口存放在 `./api` 目录下，需要 nodejs 8+ 环境, 部署时需要在 `./api` 下创建一个 `.env` 的文件，用于保存百度AI OCR API的鉴权数据，其内容如下
+接口存放在 `./api` 目录下，需要 nodejs 8+ 环境
 
-``` ini
-# ./api/.env
-PORT = 3000 # node 服务运行端口
-CLIENT_ID = xxx # Baidu API Client ID   / AK
-CLIENT_SECRET = xxx # Baidu API Client Secret  /  SK
+> (可选) 部署时可在 `./api` 下创建一个 `.env` 的文件
+>
+>  ``` ini
+>  # ./api/.env
+>  PORT = 3000 # node 服务运行端口 默认 3000
+>  ```
 
-```
 ### 启动接口服务
 
 ``` bash
 cd api
-npm install # 安装依赖
+npm install # 安装依赖 或 yarn
 npm install -g pm2 # 安装 pm2 (一种可自动重启 node 脚本的服务, 注意不要使用 root 角色执行该命令，下同)
 pm2 start index.js --name ONI --watch # 以 daemon 方式启动服务以防机器重启或进程挂掉
-pm2 log ONI # 查看访问日志
+pm2 log ONI # 查看接口日志
 ```
+
+### 添加 / 查看接口鉴权信息
+
+直接访问接口根目录 (127.0.0.1:3000), 进入接口调试页面进行增删 id/secret 和查看接口每日调用次数的页面。
+
+数据存放于本地 `./database.sqlite` 的 SQLite 数据库，在首次运行时会自动进行 database migration (基于 [node-sqlite](https://github.com/kriasoft/node-sqlite#migrations))
+
+数据库迁移文件位于 `./migrations/`
+
+### 定时任务
+
+任务表位于 `./crontab.js` (基于 [node-schedule](https://github.com/node-schedule/node-schedule))
+
+计划于每日 00:00:00 重置所有 id/secret 的调用次数计数器。
