@@ -14,9 +14,7 @@ class API {
     }
     return axios.get('https://aip.baidubce.com/oauth/2.0/token', { params })
       .then(res => res.data.access_token)
-      .catch(err => {
-        throw new Error(err)
-      })
+      .catch(err => err.response.status)
   }
 
   static async ocr (token, image) {
@@ -26,8 +24,8 @@ class API {
       language_type: 'CHN_ENG',
     }
     return axios.post(url, qs.stringify(data))
-      .then(res => res.data.words_result)
-      .catch(err => err)
+      .then(res => res.data)
+      .catch(err => err.response.status)
   }
 
   static analyze (ocrResult) {

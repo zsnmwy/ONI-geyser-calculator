@@ -8,7 +8,8 @@ const dbConnection = Promise.resolve()
 const sql = {
   insertToken: `INSERT INTO token (id, secret, user_name, create_time, counter)
                 VALUES (?, ?, ?, ?, 0)`,
-  queryToken: `SELECT * FROM token`,
+  queryTokens: `SELECT * FROM token WHERE counter < 500`,
+  queryAllTokens: `SELECT * FROM token`,
   resetCounter: `UPDATE token SET counter = 0`,
 }
 
@@ -24,9 +25,9 @@ module.exports = {
 
     return db.run(sql.insertToken, [id, secret, name, new Date().getTime()])
   },
-  async queryTokens () {
+  async queryTokens (queryAll = false) {
     const db = await dbConnection
-    return db.all(sql.queryToken)
+    return db.all(queryAll ? sql.queryAllTokens : sql.queryTokens)
   },
   async resetCounter () {
     const db = await dbConnection
