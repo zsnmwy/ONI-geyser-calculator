@@ -1,5 +1,6 @@
 const router = require('koa-router')()
 const API = require('./api')
+const db = require('./db')
 
 router.get('/', async ctx => {
   await ctx.render('index', {
@@ -16,6 +17,19 @@ router.post('/upload', async ctx => {
   const result = API.analyze(ocrResult)
 
   ctx.body = result
+})
+
+router.get('/queryToken', async ctx => {
+  ctx.body = await db.queryToken()
+})
+
+router.get('/insertToken', async ctx => {
+  await db.insertToken()
+    .then(ret => {
+      ctx.body = ret
+    }).catch(err => {
+      ctx.throw(err)
+    })
 })
 
 module.exports = router
