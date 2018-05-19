@@ -6,8 +6,8 @@ const dbConnection = Promise.resolve()
   .catch(err => console.error(err))
 
 const sql = {
-  insertToken: `INSERT INTO token (key, secret, user_name, create_time)
-                VALUES (?, ?, ?, ?)`,
+  insertToken: `INSERT INTO token (key, secret, user_name, create_time, counter)
+                VALUES (?, ?, ?, ?, 0)`,
   queryToken: `SELECT * FROM token`,
 }
 

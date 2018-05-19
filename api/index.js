@@ -1,4 +1,5 @@
 require('dotenv').config()
+require('./crontab')()
 const Koa = require('koa')
 const path = require('path')
 const views = require('koa-views')
