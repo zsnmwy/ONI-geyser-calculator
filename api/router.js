@@ -20,14 +20,16 @@ router.post('/upload', async ctx => {
 })
 
 router.get('/queryToken', async ctx => {
-  ctx.body = await db.queryToken()
+  await db.queryToken()
+    .then(ret => { ctx.body = ret })
+    .catch(err => { ctx.throw(500, err) })
 })
 
 router.post('/insertToken', async ctx => {
   const { key, secret, name } = ctx.request.body
-  ctx.body = await db.insertToken({ key, secret, name })
-    .then(ret => { ctx.body = ret })
-    .catch(err => { ctx.throw(err) })
+  await db.insertToken({ key, secret, name })
+    .then(ret => { ctx.body = ret.changes })
+    .catch(err => { ctx.throw(500, err) })
 })
 
 module.exports = router

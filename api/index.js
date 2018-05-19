@@ -14,6 +14,15 @@ const port = process.env.PORT || 3000
 
 app.use(Logger())
 
+// Catching downstream errors
+app.use(async (ctx, next) => {
+  try { await next() } catch (err) {
+    ctx.status = err.status || 500
+    ctx.body = err.message
+    ctx.app.emit('error', err, ctx)
+  }
+})
+
 app.use(cors())
 
 app.use(BodyParser({
