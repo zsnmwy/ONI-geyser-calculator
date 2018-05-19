@@ -19,16 +19,22 @@ router.post('/upload', async ctx => {
   ctx.body = result
 })
 
-router.get('/queryToken', async ctx => {
-  await db.queryToken()
-    .then(ret => { ctx.body = ret })
+router.get('/apiQuery', async ctx => {
+  await db.queryTokens()
+    .then(ret => {
+      // secret mask
+      ctx.body = ret.map(item => { item.secret = '***'; return item })
+    })
     .catch(err => { ctx.throw(500, err) })
 })
 
 router.post('/insertToken', async ctx => {
-  const { key, secret, name } = ctx.request.body
-  await db.insertToken({ key, secret, name })
-    .then(ret => { ctx.body = ret.changes })
+  const { id, secret, name } = ctx.request.body
+  // validation
+  await API.getAccessToken({ id, secret })
+    .catch(() => { ctx.throw(400, 'Invalid id/secret string.') })
+    .then(() => db.insertToken({ id, secret, name }))
+    .then(ret => { ctx.status = 201 })
     .catch(err => { ctx.throw(500, err) })
 })
 

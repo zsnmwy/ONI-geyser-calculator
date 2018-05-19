@@ -6,11 +6,11 @@ const qs = require('querystring')
  * http://ai.baidu.com/docs#/OCR-API/top
  */
 class API {
-  static async getAccessToken () {
+  static async getAccessToken ({ id, secret }) {
     const params = {
       'grant_type': 'client_credentials',
-      'client_id': process.env.CLIENT_ID,
-      'client_secret': process.env.CLIENT_SECRET,
+      'client_id': id,
+      'client_secret': secret,
     }
     return axios.get('https://aip.baidubce.com/oauth/2.0/token', { params })
       .then(res => res.data.access_token)

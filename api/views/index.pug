@@ -9,14 +9,14 @@ body
 
   h2 InsertToken
   form(action="insertToken" method="POST")
-    input(name="key", placeholder="key 0-9a-zA-Z only")
-    input(name="secret", placeholder="secret 0-9a-zA-Z only")
-    input(name="name", placeholder="name 0-9a-zA-Z_ only")
+    input(name="id", placeholder="id")
+    input(name="secret", placeholder="secret")
+    input(name="name", placeholder="nickname")
     button(type="submit") submit
 
   h2 QueryToken
   table#tokens
-    tr #[th key] #[th secret] #[th name] #[th counter]
+    tr #[th id] #[th secret] #[th name] #[th counter]
 
   h2 Upload
   form(action="upload" method="POST")
@@ -34,11 +34,11 @@ body
   script(src="https://cdn.bootcss.com/jquery/1.11.1-rc2/jquery.min.js")
   script.
     // token pooling
-    $.get('queryToken', function(res) {
+    $.get('apiQuery', function(res) {
       console.log(res)
       for (let token of res) {
         $('#tokens').append(`<tr>
-          <td>${token.key}</td>
+          <td>${token.id}</td>
           <td>${token.secret}</td>
           <td>${token.user_name}</td>
           <td>${token.counter}</td>

@@ -1,10 +1,12 @@
 -- Up
 CREATE TABLE token (
-  key         TEXT      NOT NULL PRIMARY KEY,
+  id          TEXT      NOT NULL,
   secret      TEXT      NOT NULL,
   user_name   TEXT,
   create_time INTEGER   NOT NULL,
-  counter     INTEGER   NOT NULL
+  counter     INTEGER   NOT NULL DEFAULT 0,
+  status      INTEGER   NOT NULL DEFAULT 0,
+  PRIMARY KEY ("id")
 );
 
 -- Down
