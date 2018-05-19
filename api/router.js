@@ -11,27 +11,32 @@ router.get('/', async ctx => {
 router.post('/upload', async ctx => {
   const base64 = ctx.request.body.image
   const rows = await db.queryTokens()
-  if (!ocrResult.words_result) return ctx.throw(500, 'Maximum number of invocations.')
   let ocrResult
   for (let row of rows) {
     const { id, secret } = row
     const token = await API.getAccessToken({ id, secret })
     if (token === 401) {
-      // TODO: remove invalid id/secret pair
+      // authentication failed
+      db.setTokenInvalid(id)
       continue
     }
 
     ocrResult = await API.ocr(token, base64)
     if (ocrResult && ocrResult.error_code === 17) {
-      // TODO: daily request limit reached.
+      // daily request limit reached.
+      db.resetCounter(id, 500)
       continue
     }
     if (ocrResult && ocrResult.words_result) {
-      // TODO: increase token counter
+      // increase token counter
+      db.increaseCounter(id)
       break
     }
   }
-  if (!ocrResult) return ctx.throw(500, 'There is no id/secret pair that you can use.')
+  if (!ocrResult || !ocrResult.words_result) {
+    console.warn('API call failed ERROR: ', ocrResult)
+    return ctx.throw(500, 'There is no id/secret pair that you can use.')
+  }
 
   const result = API.analyze(ocrResult.words_result)
 

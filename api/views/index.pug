@@ -16,7 +16,8 @@ body
 
   h2 QueryToken
   table#tokens
-    tr #[th id] #[th secret] #[th name] #[th counter]
+    tr #[th id] #[th secret] #[th name] #[th counter] #[th status]
+  p: small 注：status值 -1: 无效 1: 有效 0: 尚未验证
 
   h2 Upload
   form(action="upload" method="POST")
@@ -42,6 +43,7 @@ body
           <td>${token.secret}</td>
           <td>${token.user_name}</td>
           <td>${token.counter}</td>
+          <td>${token.status}</td>
         </tr>`)
       }
     })
