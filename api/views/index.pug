@@ -19,6 +19,12 @@ body
     tr #[th id] #[th secret] #[th name] #[th counter] #[th status]
   p: small 注：status值 -1: 无效 1: 有效 0: 尚未验证
 
+  h2 RemoveToken
+  form(action="removeToken" method="POST")
+    input(name="id", placeholder="id")
+    input(name="secret", placeholder="secret")
+    button(type="submit") submit
+
   h2 Upload
   form(action="upload" method="POST")
     input#ipt-file(type="file")

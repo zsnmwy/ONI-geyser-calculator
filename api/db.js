@@ -13,7 +13,7 @@ const sql = {
   setCounter: `UPDATE token SET counter = ? WHERE id = ?`,
   resetCounter: `UPDATE token SET counter = 0`,
   increaseCounter: `UPDATE token SET counter = counter + 1 WHERE id = ?`,
-  removeToken: `DELETE FROM token WHERE id = ?`,
+  removeToken: `DELETE FROM token WHERE id = ? AND secret = ?`,
   setTokenInvalid: `UPDATE token SET status = -1 WHERE id = ?`,
 }
 
@@ -28,6 +28,18 @@ module.exports = {
     }
 
     return db.run(sql.insertToken, [id, secret, name, new Date().getTime()])
+  },
+
+  async removeToken ({ id, secret }) {
+    const db = await dbConnection
+
+    // prevent SQL injection
+    const regex = /\W/
+    if (regex.test(id) || regex.test(secret)) {
+      return Promise.reject(new Error('Illegal String!'))
+    }
+
+    return db.run(sql.removeToken, [id, secret])
   },
 
   async queryTokens (queryAll = false) {
@@ -51,5 +63,6 @@ module.exports = {
   async setTokenInvalid (id) {
     const db = await dbConnection
     return db.run(sql.setTokenInvalid, id)
-  }
+  },
+
 }

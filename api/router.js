@@ -46,8 +46,12 @@ router.post('/upload', async ctx => {
 router.get('/apiQuery', async ctx => {
   await db.queryTokens(true)
     .then(ret => {
-      // secret mask
-      ctx.body = ret.map(item => { item.secret = '***'; return item })
+      // id/secret mask
+      ctx.body = ret.map(item => {
+        item.secret = '***'
+        item.id = item.id.replace(/(\w{4})\w{16}/, '$1****')
+        return item
+      })
     })
     .catch(err => { ctx.throw(500, err) })
 })
@@ -60,6 +64,16 @@ router.post('/insertToken', async ctx => {
     .then(() => db.insertToken({ id, secret, name }))
     .then(ret => { ctx.status = 201 })
     .catch(err => { ctx.throw(500, err) })
+})
+
+router.post('/removeToken', async ctx => {
+  const { id, secret } = ctx.request.body
+  await db.removeToken({ id, secret })
+    .then(ret => {
+      if (ret.changes === 0) return Promise.reject('Unmatched id/secret pairs.')
+      ctx.status = 200
+    })
+    .catch(err => { ctx.throw(400, err) })
 })
 
 module.exports = router
