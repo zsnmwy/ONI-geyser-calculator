@@ -23,13 +23,11 @@ router.get('/queryToken', async ctx => {
   ctx.body = await db.queryToken()
 })
 
-router.get('/insertToken', async ctx => {
-  await db.insertToken()
-    .then(ret => {
-      ctx.body = ret
-    }).catch(err => {
-      ctx.throw(err)
-    })
+router.post('/insertToken', async ctx => {
+  const { key, secret, name } = ctx.request.body
+  ctx.body = await db.insertToken({ key, secret, name })
+    .then(ret => { ctx.body = ret })
+    .catch(err => { ctx.throw(err) })
 })
 
 module.exports = router

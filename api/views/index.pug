@@ -6,6 +6,19 @@ head
   meta(http-equiv="X-UA-Compatible", content="ie=edge")
   title ONI Image Recognition API
 body
+
+  h2 InsertToken
+  form(action="insertToken" method="POST")
+    input(name="key", placeholder="key 0-9a-zA-Z only")
+    input(name="secret", placeholder="secret 0-9a-zA-Z only")
+    input(name="name", placeholder="name 0-9a-zA-Z_ only")
+    button(type="submit") submit
+
+  h2 QueryToken
+  table#tokens
+    tr #[th key] #[th secret] #[th name] #[th counter]
+
+  h2 Upload
   form(action="upload" method="POST")
     input#ipt-file(type="file")
     button#clean(type='button') 清除
@@ -20,6 +33,20 @@ body
 
   script(src="https://cdn.bootcss.com/jquery/1.11.1-rc2/jquery.min.js")
   script.
+    // token pooling
+    $.get('queryToken', function(res) {
+      console.log(res)
+      for (let token of res) {
+        $('#tokens').append(`<tr>
+          <td>${token.key}</td>
+          <td>${token.secret}</td>
+          <td>${token.user_name}</td>
+          <td>${token.counter}</td>
+        </tr>`)
+      }
+    })
+
+    // upload
     let width = 0, height = 0, base64, result
     result = JSON.parse(localStorage.getItem('result') || '{}')
     $('#clean').on('click', function() {

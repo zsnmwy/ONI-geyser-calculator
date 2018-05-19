@@ -13,9 +13,16 @@ const sql = {
 }
 
 module.exports = {
-  async insertToken () {
+  async insertToken ({ key, secret, name }) {
     const db = await dbConnection
-    return db.run(sql.insertToken, ['key', 'secret', 'mutoe', new Date().getTime()])
+
+    // prevent SQL injection
+    const regex = /\W/
+    if (regex.test(key) || regex.test(secret) || regex.test(name)) {
+      return Promise.reject(new Error('Illegal String!'))
+    }
+
+    return db.run(sql.insertToken, [key, secret, name, new Date().getTime()])
   },
   async queryToken () {
     const db = await dbConnection
