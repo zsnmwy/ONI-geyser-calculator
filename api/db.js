@@ -9,6 +9,7 @@ const sql = {
   insertToken: `INSERT INTO token (key, secret, user_name, create_time, counter)
                 VALUES (?, ?, ?, ?, 0)`,
   queryToken: `SELECT * FROM token`,
+  resetCounter: `UPDATE token SET counter = 0`,
 }
 
 module.exports = {
@@ -19,5 +20,9 @@ module.exports = {
   async queryToken () {
     const db = await dbConnection
     return db.all(sql.queryToken)
+  },
+  async resetCounter () {
+    const db = await dbConnection
+    return db.run(sql.resetCounter)
   },
 }
