@@ -1,6 +1,6 @@
 apps:
 
-  - name: 'dev'
+  - name: dev
     script: ./index.js
     watch: true
     ignore_watch:
@@ -8,5 +8,12 @@ apps:
       - database.sqlite
     env:
       NODE_ENV: development
-    env_production:
+
+  - name: ONI
+    script: ./index.js
+    watch: true
+    ignore_watch:
+      - node_modules
+      - database.sqlite
+    env:
       NODE_ENV: production

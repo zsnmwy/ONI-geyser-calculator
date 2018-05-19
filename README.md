@@ -36,10 +36,30 @@ Good Geyser Not Included
 ### 启动接口服务
 
 ``` bash
+# with npm
 cd api
-npm install # 安装依赖 或 yarn
+npm install # 安装依赖
 npm install -g pm2 # 安装 pm2 (一种可自动重启 node 脚本的服务, 注意不要使用 root 角色执行该命令，下同)
-pm2 start index.js --name ONI --watch # 以 daemon 方式启动服务以防机器重启或进程挂掉
+
+# 以开发模式启动
+npm run dev
+
+# 以部署模式启动
+npm run start # 以 daemon 方式启动服务以防机器重启或进程挂掉
+pm2 log ONI # 查看接口日志
+```
+或
+``` bash
+# with yarn
+cd api
+yarn # 安装依赖
+yarn global add pm2 # 安装 pm2
+
+# 以开发模式启动
+yarn dev
+
+# 以部署模式启动
+yarn start # 启动服务
 pm2 log ONI # 查看接口日志
 ```
 
