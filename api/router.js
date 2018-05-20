@@ -2,11 +2,13 @@ const router = require('koa-router')()
 const API = require('./api')
 const db = require('./db')
 
-router.get('/', async ctx => {
-  await ctx.render('index', {
-    subpath: process.env.SUB_PATH || '',
+if (process.env.NODE_ENV === 'development') {
+  router.get('/', async ctx => {
+    await ctx.render('index', {
+      subpath: process.env.SUB_PATH || '',
+    })
   })
-})
+}
 
 router.post('/upload', async ctx => {
   const base64 = ctx.request.body.image
@@ -33,6 +35,7 @@ router.post('/upload', async ctx => {
       break
     }
   }
+  // no result
   if (!ocrResult || !ocrResult.words_result) {
     console.warn('API call failed ERROR: ', ocrResult)
     return ctx.throw(500, 'There is no id/secret pair that you can use.')
