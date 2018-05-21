@@ -62,9 +62,12 @@ router.get('/apiQuery', async ctx => {
 router.post('/insertToken', async ctx => {
   const { id, secret, name } = ctx.request.body
   // validation
-  await API.getAccessToken({ id, secret })
-    .catch(() => { ctx.throw(401, 'Invalid id/secret string.') })
-    .then(() => db.insertToken({ id, secret, name }))
+  let token = await API.getAccessToken({ id, secret })
+  if (typeof token !== 'string') {
+    return ctx.throw(401, 'Invalid id/secret string.')
+  }
+
+  await db.insertToken({ id, secret, name })
     .then(ret => { ctx.status = 201 })
     .catch(err => { ctx.throw(500, err) })
 })
