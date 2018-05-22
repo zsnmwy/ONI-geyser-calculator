@@ -9,19 +9,16 @@
     <link href="https://fonts.googleapis.com/css?family=Cantarell|Hammersmith+One" rel="stylesheet">
     <!-- Bootstarp -->
     <link href="CSS/bootstrap.min.css" rel="stylesheet" media="screen">
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-112322120-2"></script>
-    <script>
-      window.dataLayer = window.dataLayer || []
 
-      function gtag () {
-        dataLayer.push(arguments)
-      }
+    <script src="Script/jquery-3.3.1.min.js"></script>
 
-      gtag('js', new Date())
+    <!-- i18n support -->
+    <script src="Script/jquery.cookie.min.js"></script>
+    <script src="Script/i18n.js"></script>
 
-      gtag('config', 'UA-112322120-2')
-    </script>
+    <script src="Script/geyser_information.js"></script>
+    <script src="Script/cal.js"></script>
+    <script src="Script/image_recognition.js"></script>
 </head>
 <body>
 <div class="container">
@@ -187,16 +184,20 @@
     </div>
 </div>
 
-<script src="Script/jquery.js"></script>
-<script src="Script/bootstrap.min.js"></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-112322120-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || []
 
-<!-- i18n support -->
-<script src="Script/jquery.cookie.min.js"></script>
-<script src="Script/i18n.js"></script>
+  function gtag () {
+    dataLayer.push(arguments)
+  }
 
-<script src="Script/geyser_information.js"></script>
-<script src="Script/cal.js"></script>
-<script src="Script/image_recognition.js"></script>
+  gtag('js', new Date())
+
+  gtag('config', 'UA-112322120-2')
+</script>
+
 
 </body>
 </html>
