@@ -305,8 +305,8 @@ var Chlorine_Gas_Vent = {
 }
 
 var Natural_Gas_Geyser = {
-  Min_Daily_Eruption: 10,
-  Max_Daily_Eruption: 100,
+  Min_Daily_Eruption: 15,
+  Max_Daily_Eruption: 180,
   store_tile_one: 20,
 
 }
