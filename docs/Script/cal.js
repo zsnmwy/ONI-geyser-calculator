@@ -24,12 +24,12 @@ function get_input () {
 }
 
 function numfix (x, min, max) {
-  var e = 2.72
+  var e = 2.718282
   temp1 = (x - min) / (max - min)
   temp2 = temp1 * 12 - 6
-  temp3 = 1 / (1 - Math.pow(e, temp2))
+  temp3 = 1 / (1 + 1 / Math.pow(e, temp2))
   temp4 = (temp3 - 0.002472623) / 0.995054754
-  console.log('temp4',temp4)
+  console.log('temp4', temp4)
   return temp4 * (max - min) + min
 }
 
@@ -41,12 +41,12 @@ function cal_x_k () {
   console.log('n', n)
   nmin = 0.4 * Min_Daily_Eruption
   console.log('nmin', nmin)
-  fixDailyErup = RT_Eruption * 0.6 * Eruption_Period_Min_Num / Eruption_Period_Min_Num
+  fixDailyErup = RT_Eruption * 0.6 * Eruption_Period_Min_Num / Eruption_Period_Max_Num
   fixAcitvePercent = Acitve_Period_Min_Num / Acitve_Period_Max_Num
   console.log('fixDailyErup', fixDailyErup)
   console.log('fixAcitvePercent', fixAcitvePercent)
   fix_n = numfix(fixDailyErup, Min_Daily_Eruption, Max_Daily_Eruption) * numfix(fixAcitvePercent, 0.4, 0.8)
-  x = fix_n / nmin * 600
+  x = fix_n / nmin
   console.log('x', x)
   k = Max_Daily_Eruption / Min_Daily_Eruption
   console.log('k', k)
