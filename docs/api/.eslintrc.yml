@@ -1,0 +1,19 @@
+env:
+  es6: true
+  node: true
+
+root: true
+
+extends: standard
+
+rules:
+  comma-dangle:
+    - error
+    - always-multiline
+
+  object-curly-spacing:
+    - error
+    - always
+
+  prefer-promise-reject-errors:
+    - off

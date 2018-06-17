@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+html(lang="zh-Hans")
+head
+  meta(charset="UTF-8")
+  meta(name="viewport", content="width=device-width, initial-scale=1.0")
+  meta(http-equiv="X-UA-Compatible", content="ie=edge")
+  title ONI Image Recognition API
+body
+  form(action="upload" method="POST")
+    input#ipt-file(type="file")
+    button#clean(type='button') 清除
+  p width: #[span#width 0] height: #[span#height 0]
+  h3#loading(style='display: none;color: red;') 识别中...
+  h5 分析结果
+  p 温泉种类 #[span#type null] 温度 #[span#temp null]
+  p 喷发量 #[span#output 0] g/s
+  p 喷发期 #[span#ep 0 0]
+  p 活跃期 #[span#ap 0 0]
+  img#img-upload
+
+  script(src="https://cdn.bootcss.com/jquery/1.11.1-rc2/jquery.min.js")
+  script.
+    let width = 0, height = 0, base64, result
+    result = JSON.parse(localStorage.getItem('result') || '{}')
+    $('#clean').on('click', function() {
+      $('#ipt-file')[0].value = ''
+      $('#img-upload').attr('src', '')
+    })
+    $('#ipt-file').on('change', function(event) {
+      const file = this.files[0]
+      if (!file) return
+
+      // 获取图像宽高
+      const img = new Image()
+      img.onload = function () {
+        height = this.height
+        width = this.width
+        $('#width').text(this.width)
+        $('#height').text(this.height)
+        if (height > 900 || width > 900) {
+          alert('图片尺寸太大，请只截取喷泉相关部分，避免无用信息参与分析')
+          return
+        }
+        getBase64(file)
+      }
+      const _URL = window.URL || window.webkitURL
+      img.src = _URL.createObjectURL(file)
+      $('#img-upload').attr('src', _URL.createObjectURL(file))
+    })
+
+    function getBase64(file) {
+      // 获取图像 base64 编码
+      const reader = new FileReader()
+      reader.onload = e => {
+        base64 = e.target.result.replace(/^data:image\/(png|jpe?g|gif);base64,/, '')
+        $('#base64').text(base64)
+        upload()
+      }
+      reader.readAsDataURL(file)
+    }
+
+    function upload() {
+      $('#loading').show()
+      $.post('#{subpath}/upload', {image: base64}, function(res) {
+        console.log(res)
+        $('#loading').hide()
+        $('#type').text(res.type)
+        $('#output').text(res.output)
+        $('#temp').text(res.temp)
+        $('#ep').text(res.ep.join(' '))
+        $('#ap').text(res.ap.join(' '))
+      })
+    }

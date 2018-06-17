@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ONI Geyser Calculator</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link href="CSS/emoji.css" rel="stylesheet">
+    <link href="CSS/form.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Cantarell|Hammersmith+One" rel="stylesheet">
+    <!-- Bootstarp -->
+    <link href="CSS/bootstrap.min.css" rel="stylesheet" media="screen">
+
+    <script src="Script/jquery-3.3.1.min.js"></script>
+
+    <!-- i18n support -->
+    <script src="Script/jquery.cookie.min.js"></script>
+    <script src="Script/i18n.js"></script>
+
+    <script src="Script/geyser_information.js"></script>
+    <script src="Script/cal.js"></script>
+    <script src="Script/image_recognition.js"></script>
+</head>
+<body>
+<div class="container">
+    <div class="lang-switch">
+        <a class="text-success">Language</a>
+        <i class="em em-blush" id='lang-switch-feizhai' href="javascript:;"></i>
+        <!--<a id='lang-switch-feizhai' href="javascript:;">肥宅快乐</a>-->
+        <i class="em em-cn" id='lang-switch-zh' href="javascript:;"></i>
+        <!-- <a id='lang-switch-zh' href="javascript:;">简体中文</a>-->
+        <i class="em em-flag-hk" id='lang-switch-zh-tw' href="javascript:;"></i>
+        <!-- <a id='lang-switch-zh-tw' href="javascript:;">繁體中文</a>-->
+        <i class="em em-flag-um" id='lang-switch-en' href="javascript:;"></i>
+        <!-- <a id='lang-switch-en' href="javascript:;">English</a> -->
+        <i class="em em-jp" id='lang-switch-ja' href="javascript:;"></i>
+        <!-- <a id='lang-switch-ja' href="javascript:;">日本語</a>-->
+        <i class="em em-flag-ea" id='lang-switch-es' href="javascript:;"></i>
+        <!-- <a id='lang-switch-es' href="javascript:;">Español</a>-->
+        <i class="em em-flag-mf" id='lang-switch-fr' href="javascript:;"></i>
+        <!-- <a id='lang-switch-fr' href="javascript:;">Français</a>-->
+        <i class="em em-ru" id='lang-switch-ru' href="javascript:;"></i>
+        <!-- <a id='lang-switch-ru' href="javascript:;">Русский</a>-->
+
+    </div>
+    <div class="lang-switch">
+        <a class="text-info" href="https://github.com/zsnmwy/ONI-geyser-calculator/wiki/Translation-%E7%BF%BB%E8%AF%91">Translation
+            Guide</a>
+    </div>
+
+    <div class="py-5 text-center">
+        <h2 lang-key="title">ONI Geyser Calculator (Preview)</h2>
+        <p lang-key="sub_title" class="lead">Good Geyser Not Included </p>
+        <p>
+            <a href="https://github.com/zsnmwy/ONI-geyser-calculator/wiki" target="_blank"><span
+                    lang-key="how_is_it_work">How is it work?</span> </a>
+            <a href="https://github.com/zsnmwy/ONI-geyser-calculator/issues" target="_blank"><span lang-key="issue">ISSUE</span></a>
+        </p>
+        <p><a href="https://space.bilibili.com/845096/#/" target="_blank">Author zsnmwy</a></p>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <h2 lang-key="fill_geyser_info">Fill Geyser Information</h2>
+            <div id="image-recogintion" style="display: none;">
+                <div class="progress" style="height: 1px;">
+                    <div class="progress-bar" role="progressbar" style="width: 100%;opacity: 0;" aria-valuenow="100"
+                         aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                <p id="before-upload"><span lang-key="or">or </span><a class="btn-upload" href="javascript:;"
+                                                                       lang-key="click_here">click here</a><span
+                        lang-key="to_upload_your_cap"> to upload your geyser screenshot.</span></p>
+                <p id="after-upload" class="text-success" style="display: none;">
+                    <span lang-key="finish_recognition">Recognition is complete. the recognition result may be wrong. Please check it and click "Cal"</span>
+                    <a class="btn-upload" href="javascript:;" lang-key="reupload">Re-upload</a>
+                </p>
+                <input id="ipt-file" type="file" style="display: none;">
+            </div>
+            <br>
+            <form>
+                <select class="form-control" name="Geyser" id="Geyser_type" required>
+                    <option value="Cool_Steam_Vent" lang-key="Cool_Steam_Vent">Cool Steam Vent</option>
+                    <option value="Steam_Vent" lang-key="Steam_Vent">Steam Vent</option>
+                    <option value="Water_Geyser" lang-key="Water_Geyser">Water Geyser</option>
+                    <option value="Cool_Slush_Geyser" lang-key="Cool_Slush_Geyser">Cool Slush Geyser</option>
+                    <option value="Polluted_Water_Vent" lang-key="Polluted_Water_Vent">Polluted Water Vent</option>
+                    <option value="Minor_Volcano" lang-key="Minor_Volcano">Minor Volcano</option>
+                    <option value="Volcano" lang-key="Volcano">Volcano</option>
+                    <option value="Carbon_Dioxide_Geyser" lang-key="Carbon_Dioxide_Geyser">Carbon Dioxide Geyser
+                    </option>
+                    <option value="Carbon_Dioxide_Vent" lang-key="Carbon_Dioxide_Vent">Carbon Dioxide Vent</option>
+                    <option value="Hydrogen_Vent" lang-key="Hydrogen_Vent">Hydrogen Vent</option>
+                    <option value="Polluted_Oxygen_Vent" lang-key="Polluted_Oxygen_Vent">Polluted Oxygen Vent</option>
+                    <option value="Infectious_Polluted_Oxygen_Vent" lang-key="Infectious_Polluted_Oxygen_Vent">
+                        Infectious Polluted Oxygen Vent
+                    </option>
+                    <option value="Chlorine_Gas_Vent" lang-key="Chlorine_Gas_Vent">Chlorine Gas Vent</option>
+                    <option value="Natural_Gas_Geyser" lang-key="Natural_Gas_Geyser">Natural Gas Geyser</option>
+                    <option value="Copper_Volcano" lang-key="Copper_Volcano">Copper Volcano</option>
+                    <option value="Iron_Volcano" lang-key="Iron_Volcano">Iron Volcano</option>
+                    <option value="Gold_Volcano" lang-key="Gold_Volcano">Gold Volcano</option>
+                    <option value="Leaky_Oil_Fissure" lang-key="Leaky_Oil_Fissure">Leaky Oil Fissure</option>
+                </select>
+                <div class="row">
+                    <div class="col-12">
+                        <label for="input_RT_Eruption" lang-key="RT_Eruption">RT Eruption</label>
+                        <div class="input-group">
+                            <input type="number" step="0.1" class="form-control" id="input_RT_Eruption" required>
+                            <div class="input-group-append">
+                                <span class="input-group-text"><span lang-key="g">g</span> / <span lang-key="s">s</span></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <label for="input_Eruption_Period_Max" lang-key="Eruption_Period">Eruption Period</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" lang-key="per">per</span>
+                            </div>
+                            <input type="number" class="form-control" id="input_Eruption_Period_Max" required>
+                            <div class="input-group-append">
+                                <span class="input-group-text"><span lang-key="s">s</span>&nbsp;<span lang-key="every">every</span></span>
+                            </div>
+                            <input type="number" class="form-control" id="input_Eruption_Period_Min" required>
+                            <div class="input-group-append">
+                                <span class="input-group-text" lang-key="s">s</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <label for="input_Acitve_Period_Max" lang-key="Acitve_Period">Acitve Period</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" lang-key="per">per</span>
+                            </div>
+                            <input type="number" step="0.1" class="form-control" id="input_Acitve_Period_Max" required>
+                            <div class="input-group-append">
+                                <span class="input-group-text"><span lang-key="cycle">cycles</span>&nbsp;<span
+                                        lang-key="every">every</span></span>
+                            </div>
+                            <input type="number" step="0.1" class="form-control" id="input_Acitve_Period_Min" required>
+                            <div class="input-group-append">
+                                <span class="input-group-text" lang-key="cycle">cycles</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <button type="button" class="btn btn-large btn-block btn-primary" onclick="return start()"
+                                lang-key="cal">Cal
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col-md-5">
+            <h2 class="text-lg-center" lang-key="Geyser_Information">Geyser Information</h2>
+            <br/>
+            <p class="lead text-info" id="geyser_better_persent">
+                <span lang-key="Please_fill_the_geyser_information">Please fill the geyser information.</span>
+                <br/>
+                <br/>
+                <span lang-key="and_click_cal">And click "Cal".</span>
+            </p>
+            <p id="Actual_average_daily_output" class="lead text-info"></p>
+            <p id="geyser_tile_cycle_output" class="lead text-info"></p>
+            <br/>
+            <p id="use_up_information" class="lead text-success"></p>
+            <p id="Bristle_Blossom" class="lead text-success"></p>
+            <p id="Sleet_Wheat" class="lead text-success"></p>
+            <p id="Pincha_Pepper" class="lead text-success"></p>
+            <p id="Thimble_Reed" class="lead text-success"></p>
+            <p id="Oil_Well" class="lead text-success"></p>
+            <p id="Electrolyzer" class="lead text-success"></p>
+            <p id="Fertilizer_Synthesizer" class="lead text-success"></p>
+            <p id="Carbon_Skimmer" class="lead text-success"></p>
+            <div id="extra-info">
+                <img id="img-upload">
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-112322120-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || []
+
+  function gtag () {
+    dataLayer.push(arguments)
+  }
+
+  gtag('js', new Date())
+
+  gtag('config', 'UA-112322120-2')
+</script>
+
+
+</body>
+</html>
