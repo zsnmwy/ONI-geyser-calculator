@@ -25,7 +25,7 @@ function get_input () {
 
 function numfix (x, min, max) {
   var e = 2.72
-  temp1 = x - min / (max - min)
+  temp1 = (x - min) / (max - min)
   temp2 = temp1 * 12 - 6
   temp3 = 1 / (1 - Math.pow(e, temp2))
   temp4 = (temp3 - 0.002472623) / 0.995054754
