@@ -29,6 +29,7 @@ function numfix (x, min, max) {
   temp2 = temp1 * 12 - 6
   temp3 = 1 / (1 - Math.pow(e, temp2))
   temp4 = (temp3 - 0.002472623) / 0.995054754
+  console.log('temp4',temp4)
   return temp4 * (max - min) + min
 }
 
