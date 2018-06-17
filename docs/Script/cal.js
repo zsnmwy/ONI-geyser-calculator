@@ -40,7 +40,11 @@ function cal_x_k () {
   console.log('n', n)
   nmin = 0.4 * Min_Daily_Eruption
   console.log('nmin', nmin)
-  fix_n = numfix(RT_Eruption * 0.6, Min_Daily_Eruption, Max_Daily_Eruption) * numfix(Acitve_Period_Min_Num / Acitve_Period_Max_Num, 0.4, 0.8)
+  fixDailyErup = RT_Eruption * 0.6 * Eruption_Period_Min_Num / Eruption_Period_Min_Num
+  fixAcitvePercent = Acitve_Period_Min_Num / Acitve_Period_Max_Num
+  console.log('fixDailyErup', fixDailyErup)
+  console.log('fixAcitvePercent', fixAcitvePercent)
+  fix_n = numfix(fixDailyErup, Min_Daily_Eruption, Max_Daily_Eruption) * numfix(fixAcitvePercent, 0.4, 0.8)
   x = fix_n / nmin * 600
   console.log('x', x)
   k = Max_Daily_Eruption / Min_Daily_Eruption
